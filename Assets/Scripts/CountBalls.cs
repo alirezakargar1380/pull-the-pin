@@ -11,7 +11,7 @@ public class CountBalls : MonoBehaviour
         if (collision.gameObject.CompareTag("ball") && !collision.gameObject.GetComponent<Ball>().Touched)
         {
             collision.gameObject.GetComponent<Ball>().Touched = true;
-            Debug.Log("im touched");
+            // Debug.Log("im touched");
             TouchedNumber++;
         }
 
@@ -22,6 +22,5 @@ public class CountBalls : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Started");
     }
 }
