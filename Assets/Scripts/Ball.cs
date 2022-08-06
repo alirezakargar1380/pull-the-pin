@@ -23,7 +23,6 @@ public class Ball : MonoBehaviour
 
         if (collision.gameObject.CompareTag("ball") && !collision.gameObject.GetComponent<Ball>().HadColor && HadColor)
         {
-            Debug.Log("it hasnt color");
             Color customColor = new Color(0.4f, 0.9f, 0.7f, 1.0f);
             collision.gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", customColor);
             collision.gameObject.GetComponent<Ball>().HadColor = true;

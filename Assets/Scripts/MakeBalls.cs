@@ -5,6 +5,7 @@ using UnityEngine;
 public class MakeBalls : MonoBehaviour
 {
     public GameObject Ball;
+    public GameObject Pin;
     public float space;
 
     // Start is called before the first frame update
