@@ -11,6 +11,7 @@ public class MakeBalls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // return;
         float nx = Ball.transform.position.x + space;
         for (int i = 0; i < 10; i++)
         {
