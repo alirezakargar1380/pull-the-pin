@@ -2,16 +2,60 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class MyClass
+{
+    public int level;
+    public float timeElapsed;
+    public string playerName;
+}
+
+public class Ob
+{
+    public string playerName;
+    public List<MyClass> classes;
+}
+
 public class MakeBalls : MonoBehaviour
 {
     public GameObject Ball;
     public GameObject Pin;
+    public GameObject Bomb;
     public float space;
+    public List<GameObject> levelObjects;
 
     // Start is called before the first frame update
     void Start()
     {
-        // return;
+        
+
+    MyClass myObject = new MyClass();
+        myObject.level = 1;
+        myObject.timeElapsed = 47.5f;
+        myObject.playerName = "Dr Charles Francis";
+        string json = JsonUtility.ToJson(myObject);
+        Debug.Log(json);
+
+
+        for (int i = 0; i < 2; i++)
+        {
+            GameObject NewBomb = Instantiate(Bomb, new Vector3(Bomb.transform.position.x, Bomb.transform.position.y, Bomb.transform.position.z), Bomb.transform.rotation);
+            NewBomb.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.black);
+            NewBomb.name = "bomb_" + i;
+            levelObjects.Add(NewBomb);
+        }
+
+        
+        for (int i = 0; i < levelObjects.Count; i++)
+        {
+            if (levelObjects[i].name == "bomb_1")
+            {
+                Debug.Log(levelObjects[i].name);
+                Destroy(levelObjects[i]);
+            }
+        }
+
+        Destroy(Bomb);
+        return;
         float nx = Ball.transform.position.x + space;
         for (int i = 0; i < 10; i++)
         {
