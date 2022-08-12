@@ -25,6 +25,7 @@ public class MakeBalls : MonoBehaviour
     {
         public float x;
         public float y;
+        public float z;
     }
 
     [System.Serializable]
@@ -53,7 +54,21 @@ public class MakeBalls : MonoBehaviour
     {
         LevelsDetail level = GetLevel();
         
-        MyClass myObject = new MyClass();
+        // make Balls
+        foreach (BallO ball in level.balls)
+        {
+            Debug.Log(ball.startPoint.x);
+            if (!ball.doesItHaveColor)
+            {
+                for (int i = 0; i < ball.num; i++)
+                {
+                    GameObject newGameObject = Instantiate(Ball, new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, ball.startPoint.z), Ball.transform.rotation);
+                    newGameObject.GetComponent<Ball>().HadColor = false;
+                } 
+            }
+        }
+
+            MyClass myObject = new MyClass();
         myObject.level = 1;
         myObject.timeElapsed = 47.5f;
         myObject.playerName = "Dr Charles Francis";
@@ -81,6 +96,7 @@ public class MakeBalls : MonoBehaviour
         }
 
         Destroy(Bomb);
+        Destroy(Ball);
         return;
         float nx = Ball.transform.position.x + space;
         for (int i = 0; i < 10; i++)
@@ -96,8 +112,6 @@ public class MakeBalls : MonoBehaviour
             GameObject newGameObject =  Instantiate(Ball, new Vector3(nx * i, Ball.transform.position.y - 1, Ball.transform.position.z), Ball.transform.rotation);
             newGameObject.GetComponent<Ball>().HadColor = false;
         }
-
-        Destroy(Ball);
     }
 
     public LevelsDetail GetLevel()
