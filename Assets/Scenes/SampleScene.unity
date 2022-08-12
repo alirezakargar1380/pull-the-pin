@@ -993,6 +993,7 @@ MonoBehaviour:
   Bomb: {fileID: 927019310}
   space: 0.24
   levelObjects: []
+  levelsTxt: {fileID: 4900000, guid: 14239f0d873ef134f8bc94deeaa9c9a2, type: 3}
 --- !u!4 &1834820510
 Transform:
   m_ObjectHideFlags: 0
@@ -1307,7 +1308,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 262307802121985320, guid: 490687dbe2bf4a247888a3aa85bd934b, type: 3}
       propertyPath: m_Constraints
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 262307802121985321, guid: 490687dbe2bf4a247888a3aa85bd934b, type: 3}
       propertyPath: script
@@ -1331,7 +1332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299875248052137149, guid: 490687dbe2bf4a247888a3aa85bd934b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 299875248052137149, guid: 490687dbe2bf4a247888a3aa85bd934b, type: 3}
       propertyPath: m_LocalPosition.y
