@@ -32,23 +32,27 @@ public class MakeBalls : MonoBehaviour
     {
         public Coordinate startPoint;
         public int num;
+        public bool doesItHaveColor;
+    }
+    
+    [System.Serializable]
+    public class LevelsDetail
+    {
+        public int level;
+        public BallO[] balls;
     }
 
     [System.Serializable]
-    public class Levels
+    public class Lev
     {
-        public BallO[] balls;
+        public LevelsDetail[] levels;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Levels MyLevels = new Levels();
-        MyLevels = JsonUtility.FromJson<Levels>(levelsTxt.text);
-        string vv= JsonUtility.ToJson(MyLevels.balls[0]);
-        Debug.Log(vv);
-        Debug.Log(MyLevels.balls[0].startPoint.x);
-
+        LevelsDetail level = GetLevel();
+        
         MyClass myObject = new MyClass();
         myObject.level = 1;
         myObject.timeElapsed = 47.5f;
@@ -94,6 +98,16 @@ public class MakeBalls : MonoBehaviour
         }
 
         Destroy(Ball);
+    }
+
+    public LevelsDetail GetLevel()
+    {
+        Lev MyLevels = new Lev();
+        MyLevels = JsonUtility.FromJson<Lev>(levelsTxt.text);
+        string vv = JsonUtility.ToJson(MyLevels.levels[0]);
+        Debug.Log(vv);
+        Debug.Log(MyLevels.levels[0]);
+        return MyLevels.levels[0];
     }
 
     // Update is called once per frame
