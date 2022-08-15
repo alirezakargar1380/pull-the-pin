@@ -17,6 +17,7 @@ public class MakeBalls : MonoBehaviour
     public float space;
     public List<GameObject> levelObjects;
     public TextAsset levelsTxt;
+    public GameObject[] Bombs;
 
     [System.Serializable]
     public class Coordinate
@@ -73,18 +74,17 @@ public class MakeBalls : MonoBehaviour
         string json = JsonUtility.ToJson(myObject);
         Debug.Log(json);
 
-        GameObject NewBomb = Instantiate(Bomb, new Vector3(Bomb.transform.position.x, Bomb.transform.position.y, Bomb.transform.position.z), Bomb.transform.rotation);
-
         // PIN
         GameObject nPin = Instantiate(Pin, new Vector3(0.8f, 10.82f, 16.424f), Quaternion.Euler(new Vector3(-132.89f, 90, -90)) );
+        nPin.GetComponent<PinHandler>().BombIds = new string[] { "bomb_0" };
 
-        //for (int i = 0; i < 2; i++)
-        //{
-        //    GameObject NewBomb = Instantiate(Bomb, new Vector3(Bomb.transform.position.x, Bomb.transform.position.y, Bomb.transform.position.z), Bomb.transform.rotation);
-        //    NewBomb.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.black);
-        //    NewBomb.name = "bomb_" + i;
-        //    levelObjects.Add(NewBomb);
-        //}
+        for (int i = 0; i < 1; i++)
+        {
+            GameObject NewBomb = Instantiate(Bomb, new Vector3(Bomb.transform.position.x, Bomb.transform.position.y, Bomb.transform.position.z), Bomb.transform.rotation);
+            // NewBomb.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.black);
+            NewBomb.name = "bomb_" + i;
+            levelObjects.Add(NewBomb);
+        }
 
 
         // get bomb by Id
@@ -96,6 +96,8 @@ public class MakeBalls : MonoBehaviour
         //        Destroy(levelObjects[i]);
         //    }
         //}
+
+        // ExploadeBomb("bomb_0");
 
         Destroy(Bomb);
         Destroy(Ball);
@@ -124,6 +126,18 @@ public class MakeBalls : MonoBehaviour
         Debug.Log(vv);
         Debug.Log(MyLevels.levels[0]);
         return MyLevels.levels[0];
+    }
+
+    public void ExploadeBomb(string BombId)
+    {
+        for (int i = 0; i < levelObjects.Count; i++)
+        {
+            if (levelObjects[i].name == BombId)
+            {
+                Debug.Log(levelObjects[i].name);
+                Destroy(levelObjects[i]);
+            }
+        }
     }
 
     // Update is called once per frame
