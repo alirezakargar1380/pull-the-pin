@@ -51,6 +51,7 @@ public class MakeBalls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         LevelsDetail level = GetLevel();
         
         // make Balls
@@ -76,7 +77,11 @@ public class MakeBalls : MonoBehaviour
 
         // PIN
         GameObject nPin = Instantiate(Pin, new Vector3(0.8f, 10.82f, 16.424f), Quaternion.Euler(new Vector3(-132.89f, 90, -90)) );
-        nPin.GetComponent<PinHandler>().BombIds = new string[] { "bomb_0" };
+        nPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_0" };
+        nPin.GetComponent<PinObject>().pinName = "bla";
+        nPin.GetComponent<PinObject>().Pins = new GameObject[] { nPin };
+
+        return;
 
         for (int i = 0; i < 1; i++)
         {
