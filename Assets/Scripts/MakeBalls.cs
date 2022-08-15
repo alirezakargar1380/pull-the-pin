@@ -79,7 +79,12 @@ public class MakeBalls : MonoBehaviour
         GameObject nPin = Instantiate(Pin, new Vector3(0.8f, 10.82f, 16.424f), Quaternion.Euler(new Vector3(-132.89f, 90, -90)) );
         nPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_0" };
         nPin.GetComponent<PinObject>().pinName = "bla";
-        nPin.GetComponent<PinObject>().Pins = new GameObject[] { nPin };
+        nPin.GetComponent<PinObject>().Pins = new GameObject[] { nPin };        
+        
+        GameObject nnPin = Instantiate(Pin, new Vector3(0.8f, 9.82f, 16.424f), Quaternion.Euler(new Vector3(-132.89f, 90, -90)) );
+        nnPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_1" };
+        nnPin.GetComponent<PinObject>().pinName = "yu";
+        nnPin.GetComponent<PinObject>().Pins = new GameObject[] { nnPin };
 
         return;
 

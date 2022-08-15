@@ -17,8 +17,8 @@ public class PinObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PinObfject == null) return;
-        Destroy(PinObfject);
+        // if (PinObfject == null) return;
+        // Destroy(PinObfject);
     }
 
     public void moveAnPin(string pinNam)
@@ -27,6 +27,8 @@ public class PinObject : MonoBehaviour
 
         for (int i = 0; i < Pins.Length; i++)
         {
+            Debug.Log(Pins[i].GetComponent<PinObject>().pinName);
+            Debug.Log("-------------------------------------------");
             if (Pins[i].GetComponent<PinObject>().pinName == pinNam)
             {
                 PinObfject = Pins[i];
