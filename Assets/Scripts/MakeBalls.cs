@@ -9,8 +9,6 @@ public class MyClass
     public string playerName;
 }
 
-
-
 public class MakeBalls : MonoBehaviour
 {
     public GameObject Ball;
@@ -68,32 +66,36 @@ public class MakeBalls : MonoBehaviour
             }
         }
 
-            MyClass myObject = new MyClass();
+        MyClass myObject = new MyClass();
         myObject.level = 1;
         myObject.timeElapsed = 47.5f;
         myObject.playerName = "Dr Charles Francis";
         string json = JsonUtility.ToJson(myObject);
         Debug.Log(json);
 
+        GameObject NewBomb = Instantiate(Bomb, new Vector3(Bomb.transform.position.x, Bomb.transform.position.y, Bomb.transform.position.z), Bomb.transform.rotation);
 
-        for (int i = 0; i < 2; i++)
-        {
-            GameObject NewBomb = Instantiate(Bomb, new Vector3(Bomb.transform.position.x, Bomb.transform.position.y, Bomb.transform.position.z), Bomb.transform.rotation);
-            NewBomb.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.black);
-            NewBomb.name = "bomb_" + i;
-            levelObjects.Add(NewBomb);
-        }
+        // PIN
+        GameObject nPin = Instantiate(Pin, new Vector3(0.8f, 10.82f, 16.424f), Quaternion.Euler(new Vector3(-132.89f, 90, -90)) );
 
-        
+        //for (int i = 0; i < 2; i++)
+        //{
+        //    GameObject NewBomb = Instantiate(Bomb, new Vector3(Bomb.transform.position.x, Bomb.transform.position.y, Bomb.transform.position.z), Bomb.transform.rotation);
+        //    NewBomb.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.black);
+        //    NewBomb.name = "bomb_" + i;
+        //    levelObjects.Add(NewBomb);
+        //}
+
+
         // get bomb by Id
-        for (int i = 0; i < levelObjects.Count; i++)
-        {
-            if (levelObjects[i].name == "bomb_1")
-            {
-                Debug.Log(levelObjects[i].name);
-                Destroy(levelObjects[i]);
-            }
-        }
+        //for (int i = 0; i < levelObjects.Count; i++)
+        //{
+        //    if (levelObjects[i].name == "bomb_1")
+        //    {
+        //        Debug.Log(levelObjects[i].name);
+        //        Destroy(levelObjects[i]);
+        //    }
+        //}
 
         Destroy(Bomb);
         Destroy(Ball);
