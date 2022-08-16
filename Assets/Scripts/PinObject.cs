@@ -31,6 +31,7 @@ public class PinObject : MonoBehaviour
             Debug.Log("-------------------------------------------");
             if (Pins[i].GetComponent<PinObject>().pinName == pinNam)
             {
+                Destroy(Pins[i]);
                 PinObfject = Pins[i];
             }
         }
