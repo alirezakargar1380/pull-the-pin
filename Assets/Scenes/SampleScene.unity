@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &124969284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2361903897387352673, guid: f30d80d22a4cd234ab21c344db877a23, type: 3}
+  m_PrefabInstance: {fileID: 2361903898069134690}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &500315777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -749,10 +754,13 @@ MonoBehaviour:
   Ball: {fileID: 919132148875123785}
   Pin: {fileID: 623920516}
   Bomb: {fileID: 1821667203}
+  Buttle: {fileID: 124969284}
   space: 0.24
   levelObjects: []
   levelsTxt: {fileID: 4900000, guid: 14239f0d873ef134f8bc94deeaa9c9a2, type: 3}
   Bombs: []
+  ButtleMeshs:
+  - {fileID: -5851889776865172606, guid: f5170fc6fb659794ca1ffac5b3593f9d, type: 3}
 --- !u!4 &1834820510
 Transform:
   m_ObjectHideFlags: 0

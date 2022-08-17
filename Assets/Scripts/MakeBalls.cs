@@ -14,10 +14,12 @@ public class MakeBalls : MonoBehaviour
     public GameObject Ball;
     public GameObject Pin;
     public GameObject Bomb;
+    public GameObject Buttle;
     public float space;
     public List<GameObject> levelObjects;
     public TextAsset levelsTxt;
     public GameObject[] Bombs;
+    [SerializeField] Mesh[] ButtleMeshs;
 
     [System.Serializable]
     public class Coordinate
@@ -51,6 +53,8 @@ public class MakeBalls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Buttle.GetComponent<MeshFilter>().mesh = ButtleMeshs[0];
+        Buttle.GetComponent<MeshCollider>().sharedMesh = ButtleMeshs[0];
         return;
         // PIN
         GameObject nPin = Instantiate(Pin, new Vector3(2.31f, 8.85f, Pin.transform.position.z), Quaternion.Euler(new Vector3(-17.1f, 90f, 90f)));
