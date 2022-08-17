@@ -53,17 +53,19 @@ public class MakeBalls : MonoBehaviour
     {
 
         // PIN
-        GameObject nPin = Instantiate(Pin, new Vector3(0.8f, 10.82f, 16.424f), Quaternion.Euler(new Vector3(-132.89f, 90, -90)));
-        nPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_0" };
-        nPin.GetComponent<PinObject>().pinName = "bla";
-        nPin.GetComponent<PinObject>().Pins = new GameObject[] { nPin };
+        //GameObject nPin = Instantiate(Pin, new Vector3(0.8f, 10.82f, Pin.transform.position.z), Quaternion.Euler(new Vector3(-132.89f, 90, -90)));
+        //nPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_0" };
+        //nPin.GetComponent<PinObject>().Pins = nPin;
 
-        return;
-
-        GameObject nnPin = Instantiate(Pin, new Vector3(0.8f, 9.82f, 16.424f), Quaternion.Euler(new Vector3(-132.89f, 90, -90)));
+        GameObject nnPin = Instantiate(Pin, new Vector3(2.31f, 7.20f, Pin.transform.position.z), Quaternion.Euler(new Vector3(0f, 90, 90)));
         nnPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_1" };
-        nnPin.GetComponent<PinObject>().pinName = "yu";
-        nnPin.GetComponent<PinObject>().Pins = new GameObject[] { nnPin };
+        nnPin.GetComponent<PinObject>().Pins = nnPin;
+
+
+        Destroy(Bomb);
+        // Destroy(Ball);
+        Destroy(Pin);
+        return;
 
         LevelsDetail level = GetLevel();
         

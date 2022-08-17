@@ -8,8 +8,8 @@ public class PinHandler : MonoBehaviour
     public PinObject pinObjectSource;
     private void OnMouseDown()
     {
-        string pinName = pinObjectSource.GetComponent<PinObject>().pinName;
-        pinObjectSource.GetComponent<PinObject>().moveAnPin(pinName);
+        // string pinName = pinObjectSource.GetComponent<PinObject>().pinName;
+        pinObjectSource.GetComponent<PinObject>().moveAnPin();
         // Instantiate(gameObject, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), gameObject.transform.rotation);
         // gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z).normalized * Time.deltaTime * 0.1f;
 

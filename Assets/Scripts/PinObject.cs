@@ -5,9 +5,7 @@ using UnityEngine;
 public class PinObject : MonoBehaviour
 {
     [SerializeField] public string[] BombIds;
-    public string pinName;
-    public GameObject[] Pins;
-    public GameObject PinObfject;
+    public GameObject Pins;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,20 +19,12 @@ public class PinObject : MonoBehaviour
         // Destroy(PinObfject);
     }
 
-    public void moveAnPin(string pinNam)
+    public void moveAnPin()
     {
         if (Pins == null) return;
 
-        for (int i = 0; i < Pins.Length; i++)
-        {
-            Debug.Log(Pins[i].GetComponent<PinObject>().pinName);
-            Debug.Log("-------------------------------------------");
-            if (Pins[i].GetComponent<PinObject>().pinName == pinNam)
-            {
-                Destroy(Pins[i]);
-                PinObfject = Pins[i];
-            }
-        }
+        Animator anim = Pins.GetComponent<Animator>();
+        anim.SetBool("open", true);
     }
 
 }
