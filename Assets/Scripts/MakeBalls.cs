@@ -51,11 +51,11 @@ public class MakeBalls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        return;
         // PIN
-        //GameObject nPin = Instantiate(Pin, new Vector3(0.8f, 10.82f, Pin.transform.position.z), Quaternion.Euler(new Vector3(-132.89f, 90, -90)));
-        //nPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_0" };
-        //nPin.GetComponent<PinObject>().Pins = nPin;
+        GameObject nPin = Instantiate(Pin, new Vector3(2.31f, 8.85f, Pin.transform.position.z), Quaternion.Euler(new Vector3(-17.1f, 90f, 90f)));
+        nPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_0" };
+        nPin.GetComponent<PinObject>().Pins = nPin;
 
         GameObject nnPin = Instantiate(Pin, new Vector3(2.31f, 7.20f, Pin.transform.position.z), Quaternion.Euler(new Vector3(0f, 90, 90)));
         nnPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_1" };
