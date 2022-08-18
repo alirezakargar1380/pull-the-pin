@@ -5,6 +5,15 @@
 			"balls": [
 				{
 					"startPoint": {
+						"x": 2.27,
+						"y": 9.509999,
+						"z": 16.468
+					},
+					"num": 1,
+					"doesItHaveColor": true
+				},
+				{
+					"startPoint": {
 						"x": -0.1,
 						"y": 9.509999,
 						"z": 16.468

@@ -9,6 +9,16 @@ public class MyClass
     public string playerName;
 }
 
+public class RGBColor
+{
+    public float[] color;
+}
+
+public class RGBColors
+{
+    public Color[] colors;
+}
+
 public class MakeBalls : MonoBehaviour
 {
     public GameObject Ball;
@@ -55,7 +65,8 @@ public class MakeBalls : MonoBehaviour
     {
         Buttle.GetComponent<MeshFilter>().mesh = ButtleMeshs[0];
         Buttle.GetComponent<MeshCollider>().sharedMesh = ButtleMeshs[0];
-        return;
+        //return;
+
         // PIN
         GameObject nPin = Instantiate(Pin, new Vector3(2.31f, 8.85f, Pin.transform.position.z), Quaternion.Euler(new Vector3(-17.1f, 90f, 90f)));
         nPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_0" };
@@ -69,7 +80,7 @@ public class MakeBalls : MonoBehaviour
         Destroy(Bomb);
         // Destroy(Ball);
         Destroy(Pin);
-        return;
+        
 
         LevelsDetail level = GetLevel();
         
@@ -84,8 +95,34 @@ public class MakeBalls : MonoBehaviour
                     GameObject newGameObject = Instantiate(Ball, new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, ball.startPoint.z), Ball.transform.rotation);
                     newGameObject.GetComponent<Ball>().HadColor = false;
                 } 
+            } else
+            {
+                for (int i = 0; i < ball.num; i++)
+                {
+                    RGBColors randomColors = new RGBColors();
+                    RGBColor randomColor = new RGBColor();
+                    randomColor.color = new float[] { 0.4f, 0.90f, 0.70f, 1.0f };
+                    // randomColors.colors = randomColor.color;
+                    byte[][] colors = new byte[5][];
+                    colors[0] = new byte[4] { 39, 236, 44, 1 };
+                    colors[1] = new byte[4] { 236, 146, 39, 1 };
+                    colors[2] = new byte[4] { 210, 39, 236, 1 };
+                    colors[3] = new byte[4] { 39, 122, 236, 1 };
+                    colors[4] = new byte[4] { 236, 44, 39, 1 };
+                    // colors[2] = new float[4] { 0.255f, 0.178f, 0.5f, 1.0f };
+                    // colors[3] = new float[4] { 0.209f, 0.178f, 0.224f, 1.0f };
+
+                    int index = Random.Range(0, colors.Length);
+                    Color customColor = new Color32(colors[index][0], colors[index][1], colors[index][2], colors[index][3]);
+                    // Color customColor = new Color32(a, a, colors[index][2], colors[index][3]);
+
+                    GameObject newGameObject = Instantiate(Ball, new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, ball.startPoint.z), Ball.transform.rotation);
+                    newGameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", customColor);
+                    newGameObject.GetComponent<Ball>().HadColor = true;
+                }
             }
         }
+        return;
 
         MyClass myObject = new MyClass();
         myObject.level = 1;
