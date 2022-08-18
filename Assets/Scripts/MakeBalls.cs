@@ -30,6 +30,8 @@ public class MakeBalls : MonoBehaviour
     public TextAsset levelsTxt;
     public GameObject[] Bombs;
     [SerializeField] Mesh[] ButtleMeshs;
+    public Dictionary<string, GameObject[]> BallsThatConcatTogether = new Dictionary<string, GameObject[]>();
+    public GameObject LastMakedBall;
 
     [System.Serializable]
     public class Coordinate
@@ -77,13 +79,12 @@ public class MakeBalls : MonoBehaviour
         nnPin.GetComponent<PinObject>().Pins = nnPin;
 
 
-        Destroy(Bomb);
-        // Destroy(Ball);
-        Destroy(Pin);
+        
         
 
         LevelsDetail level = GetLevel();
         
+
         // make Balls
         foreach (BallO ball in level.balls)
         {
@@ -94,6 +95,14 @@ public class MakeBalls : MonoBehaviour
                 {
                     GameObject newGameObject = Instantiate(Ball, new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, ball.startPoint.z), Ball.transform.rotation);
                     newGameObject.GetComponent<Ball>().HadColor = false;
+                    newGameObject.name = "ball_" + i;
+                    newGameObject.GetComponent<Ball>().Name = "ball_" + i;
+                    if (LastMakedBall)
+                    {
+                        newGameObject.GetComponent<Ball>().parentGameObject = LastMakedBall;
+                    }
+
+                    LastMakedBall = newGameObject;
                 } 
             } else
             {
@@ -102,26 +111,36 @@ public class MakeBalls : MonoBehaviour
                     RGBColors randomColors = new RGBColors();
                     RGBColor randomColor = new RGBColor();
                     randomColor.color = new float[] { 0.4f, 0.90f, 0.70f, 1.0f };
-                    // randomColors.colors = randomColor.color;
+
                     byte[][] colors = new byte[5][];
                     colors[0] = new byte[4] { 39, 236, 44, 1 };
                     colors[1] = new byte[4] { 236, 146, 39, 1 };
                     colors[2] = new byte[4] { 210, 39, 236, 1 };
                     colors[3] = new byte[4] { 39, 122, 236, 1 };
                     colors[4] = new byte[4] { 236, 44, 39, 1 };
-                    // colors[2] = new float[4] { 0.255f, 0.178f, 0.5f, 1.0f };
-                    // colors[3] = new float[4] { 0.209f, 0.178f, 0.224f, 1.0f };
 
                     int index = Random.Range(0, colors.Length);
                     Color customColor = new Color32(colors[index][0], colors[index][1], colors[index][2], colors[index][3]);
-                    // Color customColor = new Color32(a, a, colors[index][2], colors[index][3]);
 
                     GameObject newGameObject = Instantiate(Ball, new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, ball.startPoint.z), Ball.transform.rotation);
                     newGameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", customColor);
                     newGameObject.GetComponent<Ball>().HadColor = true;
+                    newGameObject.name = "ball_" + i + "_color";
+                    newGameObject.GetComponent<Ball>().Name = "ball_" + i + "_color";
+                    if (LastMakedBall)
+                    {
+                        newGameObject.GetComponent<Ball>().parentGameObject = LastMakedBall;
+                    }
+                    
+                    LastMakedBall = newGameObject;
                 }
             }
         }
+
+        Destroy(Bomb);
+        Destroy(Ball);
+        Destroy(Pin);
+
         return;
 
         MyClass myObject = new MyClass();

@@ -877,6 +877,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 262307802121985321, guid: 490687dbe2bf4a247888a3aa85bd934b, type: 3}
+      propertyPath: LevelGeneratorScript
+      value: 
+      objectReference: {fileID: 1834820509}
     - target: {fileID: 299875248052137149, guid: 490687dbe2bf4a247888a3aa85bd934b, type: 3}
       propertyPath: m_RootOrder
       value: 7
