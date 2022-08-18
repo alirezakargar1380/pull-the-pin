@@ -91,6 +91,7 @@ public class MakeBalls : MonoBehaviour
             Debug.Log(ball.startPoint.x);
             if (!ball.doesItHaveColor)
             {
+                LastMakedBall = null;
                 for (int i = 0; i < ball.num; i++)
                 {
                     GameObject newGameObject = Instantiate(Ball, new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, ball.startPoint.z), Ball.transform.rotation);
@@ -106,6 +107,7 @@ public class MakeBalls : MonoBehaviour
                 } 
             } else
             {
+                LastMakedBall = null;
                 for (int i = 0; i < ball.num; i++)
                 {
                     RGBColors randomColors = new RGBColors();

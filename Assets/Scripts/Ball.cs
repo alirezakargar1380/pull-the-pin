@@ -39,11 +39,21 @@ public class Ball : MonoBehaviour
 
     public void setColor()
     {
-        if (!parentGameObject) return;
+        if (HadColor)
+        {
+            Debug.Log("I have Color");
+            return;
+        }
+        if (!parentGameObject && HadColor) return;
+        
         HadColor = true;
         Color customColor = new Color(0.4f, 0.9f, 0.7f, 1.0f);
         gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", customColor);
-        parentGameObject.GetComponent<Ball>().setColor();
+        if (parentGameObject)
+        {
+            parentGameObject.GetComponent<Ball>().setColor();
+        }
+        
         //Destroy(parentGameObject);
     }
 
