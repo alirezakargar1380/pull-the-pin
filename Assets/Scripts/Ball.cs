@@ -19,6 +19,8 @@ public class Ball : MonoBehaviour
             Touched = true;
             script.TouchedNumber++;
             collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
             // Debug.Log(otherGameObject.GetComponent<CountBalls>().TouchedNumber);
             // GetComponent<CountBalls>().TouchedNumber++;
             // Debug.Log(GetComponent<CountBalls>().TouchedNumber);

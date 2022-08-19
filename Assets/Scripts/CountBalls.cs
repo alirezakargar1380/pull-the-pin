@@ -7,6 +7,7 @@ public class CountBalls : MonoBehaviour
     [SerializeField] public int TouchedNumber = 0;
     private void OnCollisionEnter(Collision collision)
     {
+        return;
         if (collision.gameObject.CompareTag("ball") && !collision.gameObject.GetComponent<Ball>().Touched)
         {
             collision.gameObject.GetComponent<Ball>().Touched = true;

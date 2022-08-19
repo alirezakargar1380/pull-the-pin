@@ -9,6 +9,7 @@ public class Backet : MonoBehaviour
         if (collision.gameObject.CompareTag("ball") && !collision.gameObject.GetComponent<Ball>().Touched)
         {
             collision.gameObject.GetComponent<Ball>().Touched = true;
+            collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             LevelGeneratorScript.GetComponent<CountBalls>().TouchedNumber++;
         }
     }
