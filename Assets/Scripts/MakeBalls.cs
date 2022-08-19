@@ -31,7 +31,6 @@ public class MakeBalls : MonoBehaviour
     public GameObject[] Bombs;
     [SerializeField] Mesh[] ButtleMeshs;
     public Dictionary<string, GameObject[]> BallsThatConcatTogether = new Dictionary<string, GameObject[]>();
-    public GameObject LastMakedBall;
 
     [System.Serializable]
     public class Coordinate
@@ -91,23 +90,15 @@ public class MakeBalls : MonoBehaviour
             Debug.Log(ball.startPoint.x);
             if (!ball.doesItHaveColor)
             {
-                LastMakedBall = null;
                 for (int i = 0; i < ball.num; i++)
                 {
                     GameObject newGameObject = Instantiate(Ball, new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, ball.startPoint.z), Ball.transform.rotation);
                     newGameObject.GetComponent<Ball>().HadColor = false;
                     newGameObject.name = "ball_" + i;
                     newGameObject.GetComponent<Ball>().Name = "ball_" + i;
-                    if (LastMakedBall)
-                    {
-                        newGameObject.GetComponent<Ball>().parentGameObject = LastMakedBall;
-                    }
-
-                    LastMakedBall = newGameObject;
                 } 
             } else
             {
-                LastMakedBall = null;
                 for (int i = 0; i < ball.num; i++)
                 {
                     RGBColors randomColors = new RGBColors();
@@ -129,12 +120,6 @@ public class MakeBalls : MonoBehaviour
                     newGameObject.GetComponent<Ball>().HadColor = true;
                     newGameObject.name = "ball_" + i + "_color";
                     newGameObject.GetComponent<Ball>().Name = "ball_" + i + "_color";
-                    if (LastMakedBall)
-                    {
-                        newGameObject.GetComponent<Ball>().parentGameObject = LastMakedBall;
-                    }
-                    
-                    LastMakedBall = newGameObject;
                 }
             }
         }
