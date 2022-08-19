@@ -2,26 +2,51 @@
 	"levels": [
 		{
 			"level": 1,
+			"buttleIndex": 0,
 			"balls": [
-				{
-					"startPoint": {
-						"x": 2.27,
-						"y": 9.509999,
-						"z": 16.468
-					},
-					"num": 1,
-					"doesItHaveColor": true
-				},
 				{
 					"startPoint": {
 						"x": -0.1,
 						"y": 9.509999,
 						"z": 16.468
 					},
-					"num": 5,
-					"doesItHaveColor": false
+					"num": 15,
+					"doesItHaveColor": true
+				},
+				{
+					"startPoint": {
+						"x": -0.1,
+						"y": 8.6,
+						"z": 16.468
+					},
+					"num": 15,
+					"doesItHaveColor": true
+				},
+				{
+					"startPoint": {
+						"x": -0.1,
+						"y": 9.10,
+						"z": 16.468
+					},
+					"num": 15,
+					"doesItHaveColor": true
 				}
-			]
+			],
+			"pins": [
+				{
+					"x": 2.316,
+					"y": 7.5,
+					"z": 16.59,
+					"rx": 0,
+					"ry": 90,
+					"rz": 90
+				}
+			],
+			"bucket": {
+				"x": 1.49,
+				"y": 2.7,
+				"z": 16.019
+			}
 		}
 	]
 }

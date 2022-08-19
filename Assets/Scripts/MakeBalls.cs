@@ -25,6 +25,7 @@ public class MakeBalls : MonoBehaviour
     public GameObject Pin;
     public GameObject Bomb;
     public GameObject Buttle;
+    public GameObject Bucket;
     public float space;
     public List<GameObject> levelObjects;
     public TextAsset levelsTxt;
@@ -41,6 +42,17 @@ public class MakeBalls : MonoBehaviour
     }
 
     [System.Serializable]
+    public class CoordinateAndRotation
+    {
+        public float x;
+        public float y;
+        public float z;        
+        public float rx;
+        public float ry;
+        public float rz;
+    }
+
+    [System.Serializable]
     public class BallO
     {
         public Coordinate startPoint;
@@ -52,7 +64,10 @@ public class MakeBalls : MonoBehaviour
     public class LevelsDetail
     {
         public int level;
+        public int buttleIndex;
         public BallO[] balls;
+        public CoordinateAndRotation[] pins;
+        public Coordinate bucket;
     }
 
     [System.Serializable]
@@ -64,30 +79,34 @@ public class MakeBalls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Buttle.GetComponent<MeshFilter>().mesh = ButtleMeshs[0];
-        Buttle.GetComponent<MeshCollider>().sharedMesh = ButtleMeshs[0];
-        //return;
-
-        // PIN
-        GameObject nPin = Instantiate(Pin, new Vector3(2.31f, 8.85f, Pin.transform.position.z), Quaternion.Euler(new Vector3(-17.1f, 90f, 90f)));
-        nPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_0" };
-        nPin.GetComponent<PinObject>().Pins = nPin;
-
-        GameObject nnPin = Instantiate(Pin, new Vector3(2.31f, 7.20f, Pin.transform.position.z), Quaternion.Euler(new Vector3(0f, 90, 90)));
-        nnPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_1" };
-        nnPin.GetComponent<PinObject>().Pins = nnPin;
-
-
-        
-        
-
+        // GET LEVEL
         LevelsDetail level = GetLevel();
+
+        // Buttle
+        Buttle.GetComponent<MeshFilter>().mesh = ButtleMeshs[level.buttleIndex];
+        Buttle.GetComponent<MeshCollider>().sharedMesh = ButtleMeshs[level.buttleIndex];
+
+        Debug.Log(level.pins);
+        // PIN
+        foreach (CoordinateAndRotation coor in level.pins)
+        {
+            Debug.Log(coor.x);
+            GameObject nPin = Instantiate(Pin, new Vector3(coor.x, coor.y, coor.z), Quaternion.Euler(new Vector3(coor.rx, coor.ry, coor.rz)));
+            nPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_0" };
+            nPin.GetComponent<PinObject>().Pins = nPin;
+        }
+
+        // Bucket
+        Instantiate(Bucket, new Vector3(level.bucket.x, level.bucket.y, level.bucket.z), Quaternion.Euler(new Vector3(Bucket.transform.rotation.x, Bucket.transform.rotation.y, Bucket.transform.rotation.z)));
         
 
-        // make Balls
+
+
+        
+
+        // Make Balls
         foreach (BallO ball in level.balls)
         {
-            Debug.Log(ball.startPoint.x);
             if (!ball.doesItHaveColor)
             {
                 for (int i = 0; i < ball.num; i++)
@@ -127,7 +146,7 @@ public class MakeBalls : MonoBehaviour
         Destroy(Bomb);
         Destroy(Ball);
         Destroy(Pin);
-
+        Destroy(Bucket);
         return;
 
         MyClass myObject = new MyClass();
@@ -185,9 +204,8 @@ public class MakeBalls : MonoBehaviour
     {
         Lev MyLevels = new Lev();
         MyLevels = JsonUtility.FromJson<Lev>(levelsTxt.text);
-        string vv = JsonUtility.ToJson(MyLevels.levels[0]);
+        string vv = JsonUtility.ToJson(MyLevels.levels[0].pins);
         Debug.Log(vv);
-        Debug.Log(MyLevels.levels[0]);
         return MyLevels.levels[0];
     }
 
