@@ -107,6 +107,7 @@ public class MakeBalls : MonoBehaviour
         // Make Balls
         foreach (BallO ball in level.balls)
         {
+            break;
             if (!ball.doesItHaveColor)
             {
                 for (int i = 0; i < ball.num; i++)
@@ -144,7 +145,7 @@ public class MakeBalls : MonoBehaviour
         }
 
         Destroy(Bomb);
-        Destroy(Ball);
+        // Destroy(Ball);
         Destroy(Pin);
         Destroy(Bucket);
         return;

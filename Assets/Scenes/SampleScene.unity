@@ -258,6 +258,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomb
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6eb4b0e4cf8eb04f9df3840bdc1df27, type: 3}
+      propertyPath: m_TagString
+      value: bomb
+      objectReference: {fileID: 0}
     - target: {fileID: 8632055958874330854, guid: e6eb4b0e4cf8eb04f9df3840bdc1df27, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -422,6 +426,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: 2f16ef9121a387942aad1f39f8cb92c8, type: 3}
+--- !u!114 &668413444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668413436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7506eb3cf4e00044d826890f775cacd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MakeBallsScript: {fileID: 1834820509}
+  pinObjectSource: {fileID: 623920520}
 --- !u!1 &795881792
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,6 +591,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f16ef9121a387942aad1f39f8cb92c8, type: 3}
+--- !u!1 &967024439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 967024441}
+  - component: {fileID: 967024440}
+  - component: {fileID: 967024442}
+  m_Layer: 0
+  m_Name: LevelHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &967024440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967024439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2f4f3515e98fc4595f37f2a9558aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CatchedBallsCount: 0
+  finishStatus: 0
+  reason: nothing set yet!
+--- !u!4 &967024441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967024439}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.19343638, y: 0.7, z: 18.23476}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &967024442
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967024439}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16.252794, y: 1.081296, z: 15.403781}
+  m_Center: {x: 1.5528641, y: -0.42002848, z: -3.005653}
 --- !u!1 &1031688135 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5859259852128964746, guid: 2f16ef9121a387942aad1f39f8cb92c8, type: 3}
@@ -638,6 +717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelGeneratorScript: {fileID: 1834820509}
+  LevelHandlerScript: {fileID: 967024440}
 --- !u!1 &1605527214 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2486c3aad60bb574fa004e6cf124e666, type: 3}
@@ -937,6 +1017,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 1834820511}
+    - target: {fileID: 262307802121985321, guid: 490687dbe2bf4a247888a3aa85bd934b, type: 3}
+      propertyPath: LevelHandlerScript
+      value: 
+      objectReference: {fileID: 967024440}
     - target: {fileID: 262307802121985321, guid: 490687dbe2bf4a247888a3aa85bd934b, type: 3}
       propertyPath: LevelGeneratorScript
       value: 

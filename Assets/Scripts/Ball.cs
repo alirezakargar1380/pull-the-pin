@@ -9,8 +9,9 @@ public class Ball : MonoBehaviour
     [SerializeField] public string Name;
     public CountBalls script;
     public MakeBalls LevelGeneratorScript;
+    [SerializeField] public LevelHandler LevelHandlerScript;
 
-    
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -18,13 +19,9 @@ public class Ball : MonoBehaviour
         {
             Touched = true;
             script.TouchedNumber++;
+            LevelHandlerScript.CatchedBallsCount++;
             collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-
-            // Debug.Log(otherGameObject.GetComponent<CountBalls>().TouchedNumber);
-            // GetComponent<CountBalls>().TouchedNumber++;
-            // Debug.Log(GetComponent<CountBalls>().TouchedNumber);
-            // collision.gameObject.GetComponent<CountBalls>().TouchedNumber++;
         }
 
         if (collision.gameObject.CompareTag("ball") && !collision.gameObject.GetComponent<Ball>().HadColor && HadColor)
@@ -34,13 +31,6 @@ public class Ball : MonoBehaviour
             collision.gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", customColor);
             collision.gameObject.GetComponent<Ball>().HadColor = true;
         }
-        
-        if (collision.gameObject.CompareTag("ball") && collision.gameObject.GetComponent<Ball>().HadColor && !HadColor)
-        {
-            // setColor();
-        }
-
-        
     }
 
     private void OnCollisionStay(Collision collision)
