@@ -80,7 +80,7 @@ public class MakeBalls : MonoBehaviour
     void Start()
     {
         // GET LEVEL
-        LevelsDetail level = GetLevel();
+        LevelsDetail level = GetLevel(1);
 
         // Buttle
         Buttle.GetComponent<MeshFilter>().mesh = ButtleMeshs[level.buttleIndex];
@@ -195,13 +195,25 @@ public class MakeBalls : MonoBehaviour
         }
     }
 
-    public LevelsDetail GetLevel()
+    public LevelsDetail GetLevel(int levelNum)
     {
         Lev MyLevels = new Lev();
         MyLevels = JsonUtility.FromJson<Lev>(levelsTxt.text);
         string vv = JsonUtility.ToJson(MyLevels.levels[0].pins);
-        Debug.Log(vv);
-        return MyLevels.levels[0];
+
+        LevelsDetail selectedLevel = MyLevels.levels[0];
+
+        for (int i = 0; i < MyLevels.levels.Length; i++)
+        {
+            LevelsDetail level = MyLevels.levels[i];
+            if (levelNum == level.level)
+            {
+                selectedLevel = level;
+            }
+        }
+
+        // Debug.Log(vv);
+        return selectedLevel;
     }
 
     public void ExploadeBomb(string BombId)
