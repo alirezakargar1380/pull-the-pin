@@ -86,7 +86,6 @@ public class MakeBalls : MonoBehaviour
         Buttle.GetComponent<MeshFilter>().mesh = ButtleMeshs[level.buttleIndex];
         Buttle.GetComponent<MeshCollider>().sharedMesh = ButtleMeshs[level.buttleIndex];
 
-        Debug.Log(level.pins);
         // PIN
         foreach (CoordinateAndRotation coor in level.pins)
         {
@@ -99,11 +98,6 @@ public class MakeBalls : MonoBehaviour
         // Bucket
         Instantiate(Bucket, new Vector3(level.bucket.x, level.bucket.y, level.bucket.z), Quaternion.Euler(new Vector3(Bucket.transform.rotation.x, Bucket.transform.rotation.y, Bucket.transform.rotation.z)));
         
-
-
-
-        
-
         // Make Balls
         foreach (BallO ball in level.balls)
         {
@@ -144,7 +138,7 @@ public class MakeBalls : MonoBehaviour
             }
         }
 
-        Destroy(Bomb);
+        // Destroy(Bomb);
         // Destroy(Ball);
         Destroy(Pin);
         Destroy(Bucket);
