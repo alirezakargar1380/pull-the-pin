@@ -66,6 +66,7 @@ public class MakeBalls : MonoBehaviour
         public int level;
         public int buttleIndex;
         public BallO[] balls;
+        public Coordinate[] bombs;
         public CoordinateAndRotation[] pins;
         public Coordinate bucket;
     }
@@ -97,7 +98,13 @@ public class MakeBalls : MonoBehaviour
 
         // Bucket
         Instantiate(Bucket, new Vector3(level.bucket.x, level.bucket.y, level.bucket.z), Quaternion.Euler(new Vector3(Bucket.transform.rotation.x, Bucket.transform.rotation.y, Bucket.transform.rotation.z)));
-        
+
+        // Make Bombs
+        foreach (Coordinate coor in level.bombs)
+        {
+            Instantiate(Bomb, new Vector3(coor.x, coor.y, coor.z), Quaternion.Euler(new Vector3(Bomb.transform.rotation.x, Bomb.transform.rotation.y, Bomb.transform.rotation.z)));
+        }
+
         // Make Balls
         foreach (BallO ball in level.balls)
         {

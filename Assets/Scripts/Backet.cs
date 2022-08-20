@@ -14,8 +14,11 @@ public class Backet : MonoBehaviour
         {
             collision.gameObject.GetComponent<Ball>().Touched = true;
             collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            LevelGeneratorScript.GetComponent<CountBalls>().TouchedNumber++;
-            LevelHandlerScript.CatchedBallsCount++;
+            // LevelGeneratorScript.GetComponent<CountBalls>().TouchedNumber++;
+            if (collision.gameObject.GetComponent<Ball>().HadColor)
+            {
+                LevelHandlerScript.CatchedBallsCount++;
+            }
         }
 
         if (collision.gameObject.CompareTag("bomb"))

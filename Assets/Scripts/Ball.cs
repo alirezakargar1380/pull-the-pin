@@ -18,10 +18,13 @@ public class Ball : MonoBehaviour
         if (collision.gameObject.CompareTag("ball") && collision.gameObject.GetComponent<Ball>().Touched && !Touched)
         {
             Touched = true;
-            script.TouchedNumber++;
             LevelHandlerScript.CatchedBallsCount++;
             collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            if (HadColor)
+            {
+                script.TouchedNumber++;
+            }
         }
 
         if (collision.gameObject.CompareTag("ball") && !collision.gameObject.GetComponent<Ball>().HadColor && HadColor)
