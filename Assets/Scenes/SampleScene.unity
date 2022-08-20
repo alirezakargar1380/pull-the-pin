@@ -440,6 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeBallsScript: {fileID: 1834820509}
   pinObjectSource: {fileID: 623920520}
+  Clicked: 0
 --- !u!1 &795881792
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeBallsScript: {fileID: 1834820509}
   pinObjectSource: {fileID: 623920520}
+  Clicked: 0
 --- !u!64 &1031688140
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -758,6 +760,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
+--- !u!114 &1821667213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821667203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077e3adc91dd8b74ab77cf2fe878bed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Exploaded: 0
+  MakeReadyToExpload: 0
 --- !u!1 &1834820508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,6 +1033,10 @@ PrefabInstance:
       propertyPath: script
       value: 
       objectReference: {fileID: 1834820511}
+    - target: {fileID: 262307802121985321, guid: 490687dbe2bf4a247888a3aa85bd934b, type: 3}
+      propertyPath: HadColor
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 262307802121985321, guid: 490687dbe2bf4a247888a3aa85bd934b, type: 3}
       propertyPath: LevelHandlerScript
       value: 
