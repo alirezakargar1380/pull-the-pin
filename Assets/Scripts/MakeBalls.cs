@@ -80,6 +80,9 @@ public class MakeBalls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(LevelSelector.selectedLevel);
+        Debug.Log("------------------------ LEVEL ------------------------");
+        return;
         // GET LEVEL
         LevelsDetail level = GetLevel(1);
 
