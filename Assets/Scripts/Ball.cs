@@ -15,15 +15,21 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (collision.gameObject.CompareTag("ball") && collision.gameObject.GetComponent<Ball>().Touched && !Touched)
         {
             Touched = true;
-            LevelHandlerScript.CatchedBallsCount++;
+            
             collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
+            // gameObject.GetComponent<SphereCollider>().material.bounciness = 0;
+            // collision.gameObject.GetComponent<SphereCollider>().material.bounciness = 0;
+
             if (HadColor)
             {
-                script.TouchedNumber++;
+                LevelHandlerScript.CatchedBallsCount++;
+                // script.TouchedNumber++;
             }
         }
 
@@ -38,14 +44,21 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        // return;
-        if (!collision.gameObject.CompareTag("ball") && HadColor) return;
+        // Debug.Log(collision.gameObject.GetComponent<Ball>().Touched);
+        // Debug.Log(collision.gameObject.name);
+       // return;
 
-        if (collision.gameObject.GetComponent<Ball>().HadColor && !HadColor)
+        if (!collision.gameObject.CompareTag("ball") || HadColor || !gameObject.CompareTag("ball"))
+        {
+            return;
+        }
+
+        if (collision.gameObject.GetComponent<Ball>().HadColor && !HadColor && !collision.gameObject.GetComponent<Ball>().Touched)
         {
             HadColor = true;
-            Color customColor = new Color(0.4f, 0.9f, 0.7f, 1.0f);
-            gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", customColor);
+            // Color customColor = new Color(0.4f, 0.9f, 0.7f, 1.0f);
+            LevelGeneratorScript.MakeColorForBall(gameObject);
+            // gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", customColor);
         }
     }
 

@@ -30,7 +30,6 @@ public class PinHandler : MonoBehaviour
         // gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z).normalized * Time.deltaTime * 0.1f;
 
         // Destroy(Pin);
-        Debug.Log("clicked");
         Clicked = true;
         // MakeBallsScript.ExploadeBomb("bomb_0");
     }

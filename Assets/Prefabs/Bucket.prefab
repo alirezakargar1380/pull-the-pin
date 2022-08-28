@@ -144,6 +144,8 @@ GameObject:
   - component: {fileID: 4591166518054709555}
   - component: {fileID: 6648582046122880898}
   - component: {fileID: 6648582046122880902}
+  - component: {fileID: 4979799606784664785}
+  - component: {fileID: 6863297391269828617}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: bucket
@@ -244,3 +246,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelGeneratorScript: {fileID: 0}
   LevelHandlerScript: {fileID: 0}
+--- !u!65 &4979799606784664785
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7997735139901428204}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.024337143, y: 0.024337137, z: 0.0014012085}
+  m_Center: {x: 0, y: -9.868649e-17, z: -0.01089209}
+--- !u!64 &6863297391269828617
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7997735139901428204}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6134623362496484685, guid: d5e9953d3cc5b9b4e9d47ffd3a3bb72f, type: 3}

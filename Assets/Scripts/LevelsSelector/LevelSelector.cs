@@ -24,5 +24,12 @@ public class LevelSelector : MonoBehaviour
         selectedLevel = level;
         SceneManager.LoadScene("Test");
         // SceneManager.LoadScene("OtherSceneName", LoadSceneMode.Additive);
+    }    
+    
+    public void OpenLevelScene()
+    {
+        selectedLevel = level;
+        SceneManager.LoadScene("Levels");
+        // SceneManager.LoadScene("OtherSceneName", LoadSceneMode.Additive);
     }
 }

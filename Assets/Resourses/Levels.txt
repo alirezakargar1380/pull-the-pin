@@ -10,7 +10,7 @@
 						"y": 3.43,
 						"z": 0
 					},
-					"num": 1,
+					"num": 15,
 					"doesItHaveColor": true
 				},
 				{
@@ -20,7 +20,7 @@
 						"z": 0
 					},
 					"num": 15,
-					"doesItHaveColor": false
+					"doesItHaveColor": true
 				}
 			],
 			"bombs": [
@@ -34,7 +34,61 @@
 				{
 					"x": 0.97,
 					"y": 1.15,
-					"z": 0,
+					"z": 0.09,
+					"rx": 0,
+					"ry": 90,
+					"rz": 90
+				}
+			],
+			"bucket": {
+				"x": 0.1320924,
+				"y": -3.541151,
+				"z": 0
+			}
+		},		
+		{
+			"level": 2,
+			"buttleIndex": 0,
+			"balls": [
+				{
+					"startPoint": {
+						"x": -1.63,
+						"y": 3.43,
+						"z": 0
+					},
+					"num": 15,
+					"doesItHaveColor": false
+				},
+				{
+					"startPoint": {
+						"x": -1.63,
+						"y": 2.05,
+						"z": 0
+					},
+					"num": 15,
+					"doesItHaveColor": true
+				}
+			],
+			"bombs": [
+				{
+					"x": -0.1,
+					"y": 8.6,
+					"z": 16.468
+				}
+			],
+			"pins": [
+				{
+					"x": 0.97,
+					"y": 0.72,
+					"z": 0.09,
+					"rx": 0,
+					"ry": 90,
+					"rz": 90
+				},
+				{
+					"x": 0.97,
+					"y": 2.41,
+					"z": 0.09,
 					"rx": 0,
 					"ry": 90,
 					"rz": 90
