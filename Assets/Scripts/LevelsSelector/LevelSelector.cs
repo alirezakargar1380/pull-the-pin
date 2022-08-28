@@ -22,7 +22,7 @@ public class LevelSelector : MonoBehaviour
     public void SelectLevel()
     {
         selectedLevel = level;
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Test");
         // SceneManager.LoadScene("OtherSceneName", LoadSceneMode.Additive);
     }
 }

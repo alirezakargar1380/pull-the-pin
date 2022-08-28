@@ -2,31 +2,7 @@ fileFormatVersion: 2
 guid: 2f16ef9121a387942aad1f39f8cb92c8
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable:
-  - first:
-      74: -6434805762499955607
-    second: Cylinder|Action
-  - first:
-      74: -6380239249849741605
-    second: Cylinder|NurbsPathAction
-  - first:
-      74: -5646932762517429386
-    second: Cylinder|rotate
-  - first:
-      74: 9059089690353281434
-    second: Cylinder|rotate.001
-  - first:
-      74: -1312263404194804910
-    second: NurbsPath|Action
-  - first:
-      74: 5437898518847276268
-    second: NurbsPath|NurbsPathAction
-  - first:
-      74: -3840458860520625465
-    second: NurbsPath|rotate
-  - first:
-      74: 5322906015019299151
-    second: NurbsPath|rotate.001
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 2
