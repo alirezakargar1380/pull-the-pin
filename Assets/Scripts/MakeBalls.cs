@@ -81,7 +81,8 @@ public class MakeBalls : MonoBehaviour
     void Start()
     {
         // GET LEVEL
-        LevelsDetail level = GetLevel(LevelSelector.selectedLevel);
+        LevelsDetail level = GetLevel(1);
+        //LevelsDetail level = GetLevel(LevelSelector.selectedLevel);
 
         // Buttle
         Buttle.GetComponent<MeshFilter>().mesh = ButtleMeshs[level.buttleIndex];
@@ -100,15 +101,15 @@ public class MakeBalls : MonoBehaviour
         Instantiate(Bucket, new Vector3(level.bucket.x, level.bucket.y, level.bucket.z), Quaternion.Euler(new Vector3(Bucket.transform.rotation.x, Bucket.transform.rotation.y, Bucket.transform.rotation.z)));
 
         // Make Bombs
-        foreach (Coordinate coor in level.bombs)
-        {
-            Instantiate(Bomb, new Vector3(coor.x, coor.y, coor.z), Quaternion.Euler(new Vector3(Bomb.transform.rotation.x, Bomb.transform.rotation.y, Bomb.transform.rotation.z)));
-        }
+        //foreach (Coordinate coor in level.bombs)
+        //{
+        //    Instantiate(Bomb, new Vector3(coor.x, coor.y, coor.z), Quaternion.Euler(new Vector3(Bomb.transform.rotation.x, Bomb.transform.rotation.y, Bomb.transform.rotation.z)));
+        //}
 
         // Make Balls
         foreach (BallO ball in level.balls)
         {
-            break;
+            // break;
             if (!ball.doesItHaveColor)
             {
                 for (int i = 0; i < ball.num; i++)

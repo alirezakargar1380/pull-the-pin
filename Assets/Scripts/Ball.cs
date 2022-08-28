@@ -38,7 +38,7 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        return;
+        // return;
         if (!collision.gameObject.CompareTag("ball") && HadColor) return;
 
         if (collision.gameObject.GetComponent<Ball>().HadColor && !HadColor)

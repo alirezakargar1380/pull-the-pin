@@ -6,30 +6,21 @@
 			"balls": [
 				{
 					"startPoint": {
-						"x": -0.1,
-						"y": 9.509999,
-						"z": 16.468
+						"x": -1.63,
+						"y": 3.43,
+						"z": 0
 					},
-					"num": 15,
+					"num": 1,
 					"doesItHaveColor": true
 				},
 				{
 					"startPoint": {
-						"x": -0.1,
-						"y": 8.6,
-						"z": 16.468
+						"x": -1.63,
+						"y": 2.05,
+						"z": 0
 					},
 					"num": 15,
-					"doesItHaveColor": true
-				},
-				{
-					"startPoint": {
-						"x": -0.1,
-						"y": 9.10,
-						"z": 16.468
-					},
-					"num": 15,
-					"doesItHaveColor": true
+					"doesItHaveColor": false
 				}
 			],
 			"bombs": [
@@ -41,18 +32,18 @@
 			],
 			"pins": [
 				{
-					"x": 2.316,
-					"y": 7.5,
-					"z": 16.59,
+					"x": 0.97,
+					"y": 1.15,
+					"z": 0,
 					"rx": 0,
 					"ry": 90,
 					"rz": 90
 				}
 			],
 			"bucket": {
-				"x": 1.49,
-				"y": 2.7,
-				"z": 16.019
+				"x": 0.1320924,
+				"y": -3.541151,
+				"z": 0
 			}
 		}
 	]
