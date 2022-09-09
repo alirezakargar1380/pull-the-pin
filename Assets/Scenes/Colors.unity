@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 84625543}
   - component: {fileID: 84625542}
   - component: {fileID: 84625541}
+  - component: {fileID: 84625544}
   m_Layer: 5
   m_Name: Walls
   m_TagString: Untagged
@@ -205,7 +206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 84625542}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 84625544}
+        m_TargetAssemblyTypeName: ColorsButtonHandler, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &84625542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +257,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84625539}
   m_CullTransparentMesh: 1
+--- !u!114 &84625544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84625539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0965e0ea811c6049af61d02de9289cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handleGridButtonsScript: {fileID: 1720213836}
 --- !u!1 &312473275
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +282,7 @@ GameObject:
   - component: {fileID: 312473279}
   - component: {fileID: 312473278}
   - component: {fileID: 312473277}
+  - component: {fileID: 312473280}
   m_Layer: 5
   m_Name: Theme
   m_TagString: Untagged
@@ -326,7 +353,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 312473278}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 312473280}
+        m_TargetAssemblyTypeName: ColorsButtonHandler, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &312473278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +404,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312473275}
   m_CullTransparentMesh: 1
+--- !u!114 &312473280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312473275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0965e0ea811c6049af61d02de9289cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handleGridButtonsScript: {fileID: 1720213836}
 --- !u!1 &506004999
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +496,7 @@ GameObject:
   - component: {fileID: 788407664}
   - component: {fileID: 788407663}
   - component: {fileID: 788407662}
+  - component: {fileID: 788407665}
   m_Layer: 5
   m_Name: Trails
   m_TagString: Untagged
@@ -514,7 +567,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 788407663}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 788407665}
+        m_TargetAssemblyTypeName: ColorsButtonHandler, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &788407663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,6 +618,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788407660}
   m_CullTransparentMesh: 1
+--- !u!114 &788407665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788407660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0965e0ea811c6049af61d02de9289cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handleGridButtonsScript: {fileID: 1720213836}
 --- !u!1 &808974648
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,6 +1337,7 @@ GameObject:
   - component: {fileID: 2125678190}
   - component: {fileID: 2125678189}
   - component: {fileID: 2125678188}
+  - component: {fileID: 2125678191}
   m_Layer: 5
   m_Name: Sticks
   m_TagString: Untagged
@@ -1329,7 +1408,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2125678189}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2125678191}
+        m_TargetAssemblyTypeName: ColorsButtonHandler, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2125678189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1368,6 +1459,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125678186}
   m_CullTransparentMesh: 1
+--- !u!114 &2125678191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125678186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0965e0ea811c6049af61d02de9289cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handleGridButtonsScript: {fileID: 1720213836}
 --- !u!1001 &1692344127197688647
 PrefabInstance:
   m_ObjectHideFlags: 0

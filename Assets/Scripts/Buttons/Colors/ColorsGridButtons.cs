@@ -24,7 +24,6 @@ public class ColorsGridButtons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Instantiate(gameObject);
     }
 
     // Update is called once per frame
@@ -35,7 +34,6 @@ public class ColorsGridButtons : MonoBehaviour
 
     public void ClickOnButton(string name)
     {
-        Debug.Log(GridButtons.Length);
         SetAllButtonsDeActive();
         SetColorActiveByName(name);
     }

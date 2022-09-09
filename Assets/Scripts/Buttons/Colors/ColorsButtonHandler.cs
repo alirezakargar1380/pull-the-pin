@@ -6,18 +6,6 @@ public class ColorsButtonHandler : MonoBehaviour
 {
     public ColorsGridButtons handleGridButtonsScript;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Click()
     {
         handleGridButtonsScript.ClickOnButton(gameObject.name);
