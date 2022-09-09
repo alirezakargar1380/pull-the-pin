@@ -70,7 +70,6 @@ public class ColorsGridButtons : MonoBehaviour
 
     void SetColorActiveByName(string name)
     {
-        Debug.Log(name);
         foreach (var gO in GridButtons)
         {
             if (gO.name == name)
