@@ -21,6 +21,7 @@ public class RGBColors
 
 public class MakeBalls : MonoBehaviour
 {
+    public GameObject GameObjects;
     public GameObject Ball;
     public GameObject Pin;
     public GameObject Bomb;
@@ -82,8 +83,57 @@ public class MakeBalls : MonoBehaviour
     void Start()
     {
         // GET LEVEL
-        // LevelsDetail level = GetLevel(2);
-        LevelsDetail level = GetLevel(LevelSelector.selectedLevel);
+        LevelsDetail level = GetLevel(1);
+        // LevelsDetail level = GetLevel(LevelSelector.selectedLevel);
+
+        // Make Balls
+        foreach (BallO ball in level.balls)
+        {
+            // break;
+            if (!ball.doesItHaveColor)
+            {
+                for (int i = 0; i < ball.num; i++)
+                {
+                    // GameObject newGameObject = Instantiate(Ball, new Vector3(Ball.transform.position.x + (space * i), Ball.transform.position.y, Ball.transform.position.z), Ball.transform.rotation);
+                    // newGameObject.GetComponent<Ball>().HadColor = false;
+                    // newGameObject.name = "ball_" + i;
+                    // newGameObject.GetComponent<Ball>().Name = "ball_" + i;
+
+                    // LevelHandlerScript.AllBalls++;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < ball.num; i++)
+                {
+                    RGBColor randomColor = new RGBColor();
+                    randomColor.color = new float[] { 0.4f, 0.90f, 0.70f, 1.0f };
+
+                    byte[][] colors = new byte[5][];
+                    colors[0] = new byte[4] { 39, 236, 44, 1 };
+                    colors[1] = new byte[4] { 236, 146, 39, 1 };
+                    colors[2] = new byte[4] { 210, 39, 236, 1 };
+                    colors[3] = new byte[4] { 39, 122, 236, 1 };
+                    colors[4] = new byte[4] { 236, 44, 39, 1 };
+
+                    // GameObject newGameObject = Instantiate(Ball, new Vector3(0, 0, 0), Ball.transform.rotation);
+                    GameObject newGameObject = Instantiate(Ball);
+                    MakeColorForBall(newGameObject);
+                    newGameObject.name = "ball_" + i + "_color";
+                    newGameObject.transform.parent = GameObjects.transform;
+                    Debug.Log(ball.startPoint.x);
+                    Debug.Log(Ball.transform.position);
+                    // newGameObject.transform.position = new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, ball.startPoint.z);
+                    newGameObject.transform.position = new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, ball.startPoint.z);
+                    // newGameObject.transform.position = Ball.transform.position;
+                    // newGameObject.transform.position = new Vector3(1, 1, 1);
+                    newGameObject.transform.localScale = Ball.transform.localScale;
+                    // LevelHandlerScript.AllBalls++;
+                }
+            }
+        }
+        // Destroy(Ball);
+        return;
 
         // Buttle
         Buttle.GetComponent<MeshFilter>().mesh = ButtleMeshs[level.buttleIndex];
@@ -106,53 +156,10 @@ public class MakeBalls : MonoBehaviour
         //    Instantiate(Bomb, new Vector3(coor.x, coor.y, coor.z), Quaternion.Euler(new Vector3(Bomb.transform.rotation.x, Bomb.transform.rotation.y, Bomb.transform.rotation.z)));
         //}
 
-        // Make Balls
-        foreach (BallO ball in level.balls)
-        {
-            // break;
-            if (!ball.doesItHaveColor)
-            {
-                for (int i = 0; i < ball.num; i++)
-                {
-                    GameObject newGameObject = Instantiate(Ball, new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, ball.startPoint.z), Ball.transform.rotation);
-                    newGameObject.GetComponent<Ball>().HadColor = false;
-                    newGameObject.name = "ball_" + i;
-                    newGameObject.GetComponent<Ball>().Name = "ball_" + i;
-
-                    LevelHandlerScript.AllBalls++;
-                } 
-            } else
-            {
-                for (int i = 0; i < ball.num; i++)
-                {
-                    RGBColors randomColors = new RGBColors();
-                    RGBColor randomColor = new RGBColor();
-                    randomColor.color = new float[] { 0.4f, 0.90f, 0.70f, 1.0f };
-
-                    byte[][] colors = new byte[5][];
-                    colors[0] = new byte[4] { 39, 236, 44, 1 };
-                    colors[1] = new byte[4] { 236, 146, 39, 1 };
-                    colors[2] = new byte[4] { 210, 39, 236, 1 };
-                    colors[3] = new byte[4] { 39, 122, 236, 1 };
-                    colors[4] = new byte[4] { 236, 44, 39, 1 };
-
-                    // int index = Random.Range(0, colors.Length);
-                    // Color customColor = new Color32(colors[index][0], colors[index][1], colors[index][2], colors[index][3]);
-
-                    GameObject newGameObject = Instantiate(Ball, new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, ball.startPoint.z), Ball.transform.rotation);
-                    MakeColorForBall(newGameObject);
-                    //newGameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", customColor);
-                    //newGameObject.GetComponent<Ball>().HadColor = true;
-                    newGameObject.name = "ball_" + i + "_color";
-                    //newGameObject.GetComponent<Ball>().Name = "ball_" + i + "_color";
-
-                    LevelHandlerScript.AllBalls++;
-                }
-            }
-        }
+        
 
         // Destroy(Bomb);
-        Destroy(Ball);
+        
         Destroy(Pin);
         Destroy(Bucket);
         return;

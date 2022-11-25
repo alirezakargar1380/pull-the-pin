@@ -6,20 +6,11 @@
 			"balls": [
 				{
 					"startPoint": {
-						"x": -1.63,
-						"y": 3.43,
-						"z": 0
+						"x": -1.24,
+						"y": -0.45,
+						"z": -0.32
 					},
-					"num": 15,
-					"doesItHaveColor": true
-				},
-				{
-					"startPoint": {
-						"x": -1.63,
-						"y": 2.05,
-						"z": 0
-					},
-					"num": 15,
+					"num": 8,
 					"doesItHaveColor": true
 				}
 			],
