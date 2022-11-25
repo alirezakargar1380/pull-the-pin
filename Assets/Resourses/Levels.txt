@@ -12,6 +12,33 @@
 					},
 					"num": 8,
 					"doesItHaveColor": true
+				},					
+				{
+					"startPoint": {
+						"x": -1.24,
+						"y": -0.35,
+						"z": -0.32
+					},
+					"num": 8,
+					"doesItHaveColor": true
+				},				
+				{
+					"startPoint": {
+						"x": -1.24,
+						"y": -0.55,
+						"z": -0.32
+					},
+					"num": 8,
+					"doesItHaveColor": true
+				},				
+				{
+					"startPoint": {
+						"x": -1.24,
+						"y": -0.65,
+						"z": -0.32
+					},
+					"num": 8,
+					"doesItHaveColor": true
 				}
 			],
 			"bombs": [
