@@ -94,18 +94,18 @@ public class MakeBalls : MonoBehaviour
             {
                 for (int i = 0; i < ball.num; i++)
                 {
+                    LevelHandlerScript.AllBalls++;
                     // GameObject newGameObject = Instantiate(Ball, new Vector3(Ball.transform.position.x + (space * i), Ball.transform.position.y, Ball.transform.position.z), Ball.transform.rotation);
                     // newGameObject.GetComponent<Ball>().HadColor = false;
                     // newGameObject.name = "ball_" + i;
                     // newGameObject.GetComponent<Ball>().Name = "ball_" + i;
-
-                    // LevelHandlerScript.AllBalls++;
                 }
             }
             else
             {
                 for (int i = 0; i < ball.num; i++)
                 {
+                    LevelHandlerScript.AllBalls++;
                     RGBColor randomColor = new RGBColor();
                     randomColor.color = new float[] { 0.4f, 0.90f, 0.70f, 1.0f };
 
@@ -116,19 +116,15 @@ public class MakeBalls : MonoBehaviour
                     colors[3] = new byte[4] { 39, 122, 236, 1 };
                     colors[4] = new byte[4] { 236, 44, 39, 1 };
 
-                    // GameObject newGameObject = Instantiate(Ball, new Vector3(0, 0, 0), Ball.transform.rotation);
-                    GameObject newGameObject = Instantiate(Ball);
+                    GameObject newGameObject = Instantiate(Ball, Ball.transform.position, Ball.transform.rotation);
+                    // GameObject newGameObject = Instantiate(Ball);
                     MakeColorForBall(newGameObject);
-                    newGameObject.name = "ball_" + i + "_color";
-                    newGameObject.transform.parent = GameObjects.transform;
-                    Debug.Log(ball.startPoint.x);
-                    Debug.Log(Ball.transform.position);
+                    newGameObject.name = "ball_" + LevelHandlerScript.AllBalls + "_color";
+                    newGameObject.transform.parent = GameObjects.transform; // OK
+                    // GameObjects.transform.parent = newGameObject.transform; 
                     // newGameObject.transform.position = new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, ball.startPoint.z);
-                    newGameObject.transform.position = new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, ball.startPoint.z);
-                    // newGameObject.transform.position = Ball.transform.position;
-                    // newGameObject.transform.position = new Vector3(1, 1, 1);
                     newGameObject.transform.localScale = Ball.transform.localScale;
-                    // LevelHandlerScript.AllBalls++;
+                    
                 }
             }
         }

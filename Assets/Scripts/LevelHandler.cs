@@ -58,7 +58,7 @@ public class LevelHandler : MonoBehaviour
             Invoke("finishLevel", 3);
         }
 
-        text.GetComponent<TMPro.TextMeshProUGUI>().text = CatchedBallsCount.ToString() + " / " + AllBalls.ToString();
+        // text.GetComponent<TMPro.TextMeshProUGUI>().text = CatchedBallsCount.ToString() + " / " + AllBalls.ToString();
     }
 
 }
