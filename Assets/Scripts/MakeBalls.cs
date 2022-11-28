@@ -120,8 +120,8 @@ public class MakeBalls : MonoBehaviour
                     // GameObject newGameObject = Instantiate(Ball);
                     MakeColorForBall(newGameObject);
                     newGameObject.name = "ball_" + LevelHandlerScript.AllBalls + "_color";
-                    newGameObject.transform.parent = GameObjects.transform; // OK
-                    // GameObjects.transform.parent = newGameObject.transform; 
+                    // newGameObject.transform.parent = GameObjects.transform; // OK
+                    newGameObject.transform.SetParent(GameObjects.transform); 
                     // newGameObject.transform.position = new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, ball.startPoint.z);
                     newGameObject.transform.localScale = Ball.transform.localScale;
                     
