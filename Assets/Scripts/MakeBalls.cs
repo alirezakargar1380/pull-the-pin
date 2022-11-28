@@ -21,6 +21,7 @@ public class RGBColors
 
 public class MakeBalls : MonoBehaviour
 {
+    public GameObject BallPlace;
     public GameObject GameObjects;
     public GameObject Ball;
     public GameObject Pin;
@@ -89,6 +90,10 @@ public class MakeBalls : MonoBehaviour
         // Make Balls
         foreach (BallO ball in level.balls)
         {
+            GameObject parent = Instantiate(GameObjects, GameObjects.transform.position, GameObjects.transform.rotation);
+            parent.transform.SetParent(BallPlace.transform);
+            parent.transform.localScale = BallPlace.transform.localScale;
+
             // break;
             if (!ball.doesItHaveColor)
             {
@@ -116,19 +121,22 @@ public class MakeBalls : MonoBehaviour
                     colors[3] = new byte[4] { 39, 122, 236, 1 };
                     colors[4] = new byte[4] { 236, 44, 39, 1 };
 
+                    
+
                     GameObject newGameObject = Instantiate(Ball, Ball.transform.position, Ball.transform.rotation);
                     // GameObject newGameObject = Instantiate(Ball);
                     MakeColorForBall(newGameObject);
                     newGameObject.name = "ball_" + LevelHandlerScript.AllBalls + "_color";
                     // newGameObject.transform.parent = GameObjects.transform; // OK
-                    newGameObject.transform.SetParent(GameObjects.transform); 
+                    newGameObject.transform.SetParent(parent.transform); 
                     // newGameObject.transform.position = new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, ball.startPoint.z);
                     newGameObject.transform.localScale = Ball.transform.localScale;
                     
                 }
             }
         }
-        // Destroy(Ball);
+        Destroy(Ball);
+        Destroy(GameObjects);
         return;
 
         // Buttle
