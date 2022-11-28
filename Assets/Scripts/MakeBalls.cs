@@ -90,7 +90,9 @@ public class MakeBalls : MonoBehaviour
         // Make Balls
         foreach (BallO ball in level.balls)
         {
-            GameObject parent = Instantiate(GameObjects, GameObjects.transform.position, GameObjects.transform.rotation);
+            Debug.Log("x: " + GameObjects.transform.position.x);
+            Debug.Log("y: " + GameObjects.transform.position.y);
+            GameObject parent = Instantiate(GameObjects, new Vector3(ball.startPoint.x, ball.startPoint.y, GameObjects.transform.position.z), GameObjects.transform.rotation);
             parent.transform.SetParent(BallPlace.transform);
             parent.transform.localScale = BallPlace.transform.localScale;
 
