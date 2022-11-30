@@ -1611,6 +1611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1557269835}
   - component: {fileID: 1557269834}
+  - component: {fileID: 1557269836}
   m_Layer: 0
   m_Name: LevelHandler
   m_TagString: Untagged
@@ -1644,13 +1645,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557269833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1198335, y: 1.8087404, z: -0.19541396}
+  m_LocalPosition: {x: -0.1198335, y: -2, z: -0.19541396}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1557269836
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557269833}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.613007, y: 0.9860902, z: 11.983856}
+  m_Center: {x: 0.3970871, y: -3.5, z: 0}
 --- !u!1 &1564910581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,7 +1824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1671908900
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1829,10 +1843,10 @@ RectTransform:
   m_Father: {fileID: 139764315}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 540, y: -651.1547}
+  m_SizeDelta: {x: 650, y: 47.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1822407762
 GameObject:
