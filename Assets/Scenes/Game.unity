@@ -154,11 +154,11 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1671908900}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1.56007}
+  m_AnchoredPosition: {x: 0, y: 129.77}
   m_SizeDelta: {x: 97, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &78574401
@@ -229,7 +229,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1671908900}
-  - {fileID: 2043995206}
   - {fileID: 690768547}
   m_Father: {fileID: 1275541373}
   m_RootOrder: 3
@@ -461,11 +460,11 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1671908900}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: 0}
+  m_AnchoredPosition: {x: 5, y: 129}
   m_SizeDelta: {x: 96, y: 1919.9999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &529121552
@@ -581,7 +580,7 @@ GameObject:
   - component: {fileID: 634021608}
   m_Layer: 5
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -673,7 +672,7 @@ MonoBehaviour:
   Name: 
   script: {fileID: 0}
   LevelGeneratorScript: {fileID: 976827199}
-  LevelHandlerScript: {fileID: 0}
+  LevelHandlerScript: {fileID: 1557269834}
 --- !u!54 &634021607
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -688,8 +687,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 14
-  m_CollisionDetection: 0
+  m_Constraints: 8
+  m_CollisionDetection: 3
 --- !u!135 &634021608
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -737,7 +736,7 @@ RectTransform:
   - {fileID: 634021603}
   - {fileID: 1071093760}
   m_Father: {fileID: 139764315}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1824,6 +1823,7 @@ RectTransform:
   m_LocalScale: {x: 0.61, y: 0.61, z: 0.61}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 2043995206}
   - {fileID: 78574400}
   - {fileID: 529121551}
   m_Father: {fileID: 139764315}
@@ -1969,9 +1969,10 @@ GameObject:
   - component: {fileID: 2043995208}
   - component: {fileID: 2043995207}
   - component: {fileID: 2043995209}
+  - component: {fileID: 2043995210}
   m_Layer: 5
   m_Name: Bin
-  m_TagString: Untagged
+  m_TagString: bucket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1983,18 +1984,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043995205}
-  m_LocalRotation: {x: 0, y: 0.7576789, z: 0.65262747, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 197}
-  m_LocalScale: {x: 306.2, y: 306.2, z: 306.2}
+  m_LocalRotation: {x: -0, y: 0.7576789, z: 0.65262747, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 322.95047}
+  m_LocalScale: {x: 580.96, y: 580.96, z: 580.96}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 139764315}
-  m_RootOrder: 1
+  m_Father: {fileID: 1671908900}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -81.48, y: 180, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 322, y: 195.6}
+  m_SizeDelta: {x: 650, y: 47.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &2043995207
 MeshRenderer:
@@ -2060,6 +2061,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6227966251424968200, guid: 0f64766a3cdbfc648a607d1bc8b59f69, type: 3}
+--- !u!114 &2043995210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043995205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4838fafc97d356f42869f2bf78579420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelGeneratorScript: {fileID: 976827199}
+  LevelHandlerScript: {fileID: 1557269834}
 --- !u!1 &2064486577
 GameObject:
   m_ObjectHideFlags: 0
