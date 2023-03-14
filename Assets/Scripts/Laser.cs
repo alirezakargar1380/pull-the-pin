@@ -37,6 +37,7 @@ public class Laser : MonoBehaviour
 
     public void ActiveLaser() {
         Debug.Log("active the laser");
+        IsLaserActive = true;
         anim.SetInteger("int", 5);
         Invoke("DeActiveLaser", 3);
     }
@@ -44,14 +45,19 @@ public class Laser : MonoBehaviour
     public void DeActiveLaser()
     {
         anim.SetInteger("int", 4);
+        IsLaserActive = false;
         Invoke("ActivePreviewlaser", 5);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Smoke.SetActive(true);
-        Destroy(other.gameObject);
-        Invoke("DeactiveSmoke", 1);
+        if (IsLaserActive)
+        {
+            Smoke.SetActive(true);
+            Destroy(other.gameObject);
+            Invoke("DeactiveSmoke", 1);
+        } 
+        
     }
 
     // Update is called once per frame
