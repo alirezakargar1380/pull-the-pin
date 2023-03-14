@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3283869121189826879}
   - component: {fileID: 2010252045279546112}
   - component: {fileID: 315156490}
+  - component: {fileID: 8090030453617551603}
   m_Layer: 7
   m_Name: Ball
   m_TagString: Untagged
@@ -179,7 +180,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -219726011787449466, guid: 1a62b0b32c671394387dd5ee7500c2dc, type: 3}
+  - {fileID: 2100000, guid: 621d89ca8b502bb49b0cdfbf3117b7e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -208,4 +209,18 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3283869121189826868}
+  m_Mesh: {fileID: 2536216617148612004, guid: 1a62b0b32c671394387dd5ee7500c2dc, type: 3}
+--- !u!64 &8090030453617551603
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3283869121189826868}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2536216617148612004, guid: 1a62b0b32c671394387dd5ee7500c2dc, type: 3}
