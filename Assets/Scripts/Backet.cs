@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Backet : MonoBehaviour
 {
-    [SerializeField] public MakeBalls LevelGeneratorScript;
+    [SerializeField] public LevelMaker LevelGeneratorScript;
     [SerializeField] public LevelHandler LevelHandlerScript;
     public enum levelResultEnums { noResult, win, lose };
 

@@ -8,7 +8,7 @@ public class Ball : MonoBehaviour
     [SerializeField] public bool HadColor = false;
     [SerializeField] public string Name;
     public CountBalls script;
-    public MakeBalls LevelGeneratorScript;
+    public LevelMaker LevelGeneratorScript;
     [SerializeField] public LevelHandler LevelHandlerScript;
 
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PinHandler : MonoBehaviour
 {
-    public MakeBalls MakeBallsScript;
+    public LevelMaker MakeBallsScript;
     public PinObject pinObjectSource;
     public bool Clicked = false;
 

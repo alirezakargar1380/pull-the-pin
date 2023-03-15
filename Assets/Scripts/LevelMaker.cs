@@ -19,7 +19,7 @@ public class RGBColors
     public Color[] colors;
 }
 
-public class MakeBalls : MonoBehaviour
+public class LevelMaker : MonoBehaviour
 {
     public GameObject BallPlace;
     public GameObject GameObjects;
@@ -33,6 +33,7 @@ public class MakeBalls : MonoBehaviour
     public TextAsset levelsTxt;
     public GameObject[] Bombs;
     [SerializeField] Mesh[] ButtleMeshs;
+    [SerializeField] Material[] BallMaterial;
     public Dictionary<string, GameObject[]> BallsThatConcatTogether = new Dictionary<string, GameObject[]>();
     [SerializeField] public LevelHandler LevelHandlerScript;
 
@@ -83,6 +84,11 @@ public class MakeBalls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject CreatedBall = Instantiate(Ball);
+        Destroy(Ball);
+        CreatedBall.GetComponent<MeshRenderer>().material = BallMaterial[0];
+        Debug.Log(BallMaterial.Length);
+        return;
         // GET LEVEL
         LevelsDetail level = GetLevel(1);
         // LevelsDetail level = GetLevel(LevelSelector.selectedLevel);
@@ -204,7 +210,7 @@ public class MakeBalls : MonoBehaviour
 
         Destroy(Bomb);
         //Destroy(Ball);
-        return;
+        
         float nx = Ball.transform.position.x + space;
         for (int i = 0; i < 10; i++)
         {
