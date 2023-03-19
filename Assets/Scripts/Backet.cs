@@ -26,7 +26,7 @@ public class Backet : MonoBehaviour
             if (LevelHandlerScript.finishStatus == LevelHandler.LevelResultEnums.lose) return;
 
             LevelHandlerScript.finishStatus = LevelHandler.LevelResultEnums.lose;
-            LevelHandlerScript.reason = "»„» œ— ”»œ «‰œ«Œ ?œ";
+            LevelHandlerScript.reason = "»„» œ— ”»œ «‰œ«Œ ";
             LevelHandlerScript.finishLevel();
         }
     }

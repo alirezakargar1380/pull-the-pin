@@ -7,7 +7,6 @@ public class Ball : MonoBehaviour
     [SerializeField] public bool Touched = false;
     [SerializeField] public bool HadColor = false;
     [SerializeField] public string Name;
-    public CountBalls script;
     public LevelMaker LevelGeneratorScript;
     [SerializeField] public LevelHandler LevelHandlerScript;
 
@@ -70,6 +69,5 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 }

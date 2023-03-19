@@ -52,7 +52,7 @@ public class LevelHandler : MonoBehaviour
         if (AllBalls == CatchedBallsCount)
         {
             if (checkForWin) return;
-
+            Debug.Log("Bug");
             checkForWin = true;
             finishStatus = LevelResultEnums.win;
             Invoke("finishLevel", 3);

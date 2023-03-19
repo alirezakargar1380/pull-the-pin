@@ -84,14 +84,39 @@ public class LevelMaker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject CreatedBall = Instantiate(Ball);
-        Destroy(Ball);
-        CreatedBall.GetComponent<MeshRenderer>().material = BallMaterial[0];
-        Debug.Log(BallMaterial.Length);
-        return;
         // GET LEVEL
         LevelsDetail level = GetLevel(1);
         // LevelsDetail level = GetLevel(LevelSelector.selectedLevel);
+
+        // Make Balls
+        foreach (BallO ball in level.balls)
+        {
+            if (!ball.doesItHaveColor)
+            {
+                for (int i = 0; i < ball.num; i++)
+                {
+                    // LevelHandlerScript.AllBalls++;
+                    // GameObject newGameObject = Instantiate(Ball, new Vector3(Ball.transform.position.x + (space * i), Ball.transform.position.y, Ball.transform.position.z), Ball.transform.rotation);
+                    // newGameObject.GetComponent<Ball>().HadColor = false;
+                    // newGameObject.name = "ball_" + i;
+                    // newGameObject.GetComponent<Ball>().Name = "ball_" + i;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < ball.num; i++)
+                {
+                    GameObject CreatedBall = Instantiate(Ball, new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, Ball.transform.position.z), Ball.transform.rotation);
+                    CreatedBall.GetComponent<MeshRenderer>().material = GetRandomBallMaterial();
+                    CreatedBall.GetComponent<Ball>().HadColor = true;
+
+                    LevelHandlerScript.AllBalls++;
+                }
+            }
+        }
+        Destroy(Ball);
+        // Destroy(GameObjects);
+        return;
 
         // Make Balls
         foreach (BallO ball in level.balls)
@@ -144,7 +169,7 @@ public class LevelMaker : MonoBehaviour
             }
         }
         Destroy(Ball);
-        Destroy(GameObjects);
+        // Destroy(GameObjects);
         return;
 
         // Buttle
@@ -229,6 +254,9 @@ public class LevelMaker : MonoBehaviour
 
     public void MakeColorForBall(GameObject Object)
     {
+        Object.GetComponent<MeshRenderer>().material = GetRandomBallMaterial();
+        Object.GetComponent<Ball>().HadColor = true;
+        return;
         byte[][] colors = new byte[5][];
         colors[0] = new byte[4] { 39, 236, 44, 1 };
         colors[1] = new byte[4] { 236, 146, 39, 1 };
@@ -273,6 +301,12 @@ public class LevelMaker : MonoBehaviour
                 Destroy(levelObjects[i]);
             }
         }
+    }
+
+    public Material GetRandomBallMaterial()
+    {
+        int index = Random.Range(0, BallMaterial.Length);
+        return BallMaterial[index];
     }
 
     // Update is called once per frame
