@@ -689,11 +689,11 @@ MonoBehaviour:
   BallPlace: {fileID: 0}
   GameObjects: {fileID: 0}
   Ball: {fileID: 1718425426}
-  Pin: {fileID: 0}
+  Pin: {fileID: 919132148541064558}
   Bomb: {fileID: 0}
   Buttle: {fileID: 0}
   Bucket: {fileID: 0}
-  space: 0.38
+  space: 0.24
   levelObjects: []
   levelsTxt: {fileID: 4900000, guid: 14239f0d873ef134f8bc94deeaa9c9a2, type: 3}
   Bombs: []
@@ -705,6 +705,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 6075f4a7a3665374cb93a676d9ab130b, type: 2}
   - {fileID: 2100000, guid: 96c48afa033e5dd4b912b7b63fe6fa32, type: 2}
   - {fileID: 2100000, guid: a2b7d5079d4649649a446d816fe3b549, type: 2}
+  WithoutColorBallMaterial: {fileID: 2100000, guid: d5024f4610065a540a441d578257f2c6, type: 2}
   LevelHandlerScript: {fileID: 2143855918}
 --- !u!4 &794189984
 Transform:
@@ -6082,7 +6083,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148541064558}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -4.2396116, y: 1.83, z: -1.343}
+  m_LocalPosition: {x: -4.2396116, y: 1.87, z: -1.343}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6579,6 +6580,10 @@ PrefabInstance:
       propertyPath: LevelGeneratorScript
       value: 
       objectReference: {fileID: 794189983}
+    - target: {fileID: 6718367693172086209, guid: 42609657839f86f45aed84dacd018f29, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d5024f4610065a540a441d578257f2c6, type: 2}
     - target: {fileID: 7731294999441870834, guid: 42609657839f86f45aed84dacd018f29, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -6589,7 +6594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7731294999441870834, guid: 42609657839f86f45aed84dacd018f29, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.889
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7731294999441870834, guid: 42609657839f86f45aed84dacd018f29, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6626,6 +6631,10 @@ PrefabInstance:
     - target: {fileID: 7731294999441870837, guid: 42609657839f86f45aed84dacd018f29, type: 3}
       propertyPath: m_Name
       value: Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 7731294999441870846, guid: 42609657839f86f45aed84dacd018f29, type: 3}
+      propertyPath: m_Constraints
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42609657839f86f45aed84dacd018f29, type: 3}

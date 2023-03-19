@@ -34,6 +34,7 @@ public class LevelMaker : MonoBehaviour
     public GameObject[] Bombs;
     [SerializeField] Mesh[] ButtleMeshs;
     [SerializeField] Material[] BallMaterial;
+    [SerializeField] Material WithoutColorBallMaterial;
     public Dictionary<string, GameObject[]> BallsThatConcatTogether = new Dictionary<string, GameObject[]>();
     [SerializeField] public LevelHandler LevelHandlerScript;
 
@@ -85,8 +86,7 @@ public class LevelMaker : MonoBehaviour
     void Start()
     {
         // GET LEVEL
-        LevelsDetail level = GetLevel(1);
-        // LevelsDetail level = GetLevel(LevelSelector.selectedLevel);
+        LevelsDetail level = GetLevel(LevelPage.selectedLevel);
 
         // Make Balls
         foreach (BallO ball in level.balls)
@@ -95,11 +95,11 @@ public class LevelMaker : MonoBehaviour
             {
                 for (int i = 0; i < ball.num; i++)
                 {
-                    // LevelHandlerScript.AllBalls++;
-                    // GameObject newGameObject = Instantiate(Ball, new Vector3(Ball.transform.position.x + (space * i), Ball.transform.position.y, Ball.transform.position.z), Ball.transform.rotation);
-                    // newGameObject.GetComponent<Ball>().HadColor = false;
-                    // newGameObject.name = "ball_" + i;
-                    // newGameObject.GetComponent<Ball>().Name = "ball_" + i;
+                    GameObject CreatedBall = Instantiate(Ball, new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, Ball.transform.position.z), Ball.transform.rotation);
+                    CreatedBall.GetComponent<MeshRenderer>().material = WithoutColorBallMaterial;
+                    CreatedBall.GetComponent<Ball>().HadColor = false;
+
+                    LevelHandlerScript.AllBalls++;
                 }
             }
             else
@@ -115,7 +115,16 @@ public class LevelMaker : MonoBehaviour
             }
         }
         Destroy(Ball);
-        // Destroy(GameObjects);
+
+
+        // PIN
+        foreach (CoordinateAndRotation coor in level.pins)
+        {
+            GameObject nPin = Instantiate(Pin, new Vector3(coor.x, coor.y, coor.z), Quaternion.Euler(new Vector3(coor.rx, coor.ry, coor.rz)));
+            nPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_0" };
+            nPin.GetComponent<PinObject>().Pins = nPin;
+        }
+        Destroy(Pin);
         return;
 
         // Make Balls
@@ -176,13 +185,7 @@ public class LevelMaker : MonoBehaviour
         Buttle.GetComponent<MeshFilter>().mesh = ButtleMeshs[level.buttleIndex];
         Buttle.GetComponent<MeshCollider>().sharedMesh = ButtleMeshs[level.buttleIndex];
 
-        // PIN
-        foreach (CoordinateAndRotation coor in level.pins)
-        {
-            GameObject nPin = Instantiate(Pin, new Vector3(coor.x, coor.y, coor.z), Quaternion.Euler(new Vector3(coor.rx, coor.ry, coor.rz)));
-            nPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_0" };
-            nPin.GetComponent<PinObject>().Pins = nPin;
-        }
+        
 
         // Bucket
         Instantiate(Bucket, new Vector3(level.bucket.x, level.bucket.y, level.bucket.z), Quaternion.Euler(new Vector3(Bucket.transform.rotation.x, Bucket.transform.rotation.y, Bucket.transform.rotation.z)));
