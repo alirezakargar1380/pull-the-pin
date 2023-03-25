@@ -27,6 +27,7 @@ public class LevelMaker : MonoBehaviour
     public GameObject Pin;
     public GameObject Bomb;
     public GameObject Buttle;
+    public GameObject ButtleParent;
     public GameObject Bucket;
     public float space;
     public List<GameObject> levelObjects;
@@ -87,6 +88,16 @@ public class LevelMaker : MonoBehaviour
     {
         // GET LEVEL
         LevelsDetail level = GetLevel(LevelPage.selectedLevel);
+
+        // Buttle
+        GameObject CreatedButtle = Instantiate(Buttle, Buttle.transform.position, Buttle.transform.rotation);
+        CreatedButtle.transform.SetParent(ButtleParent.transform);
+        CreatedButtle.transform.position = Buttle.transform.position;
+        CreatedButtle.transform.rotation = Buttle.transform.rotation;
+        CreatedButtle.transform.localScale = Buttle.transform.localScale;
+        CreatedButtle.GetComponent<MeshFilter>().mesh = ButtleMeshs[0];
+        CreatedButtle.GetComponent<MeshCollider>().sharedMesh = ButtleMeshs[0];
+        Destroy(Buttle);
 
         // Make Balls
         foreach (BallO ball in level.balls)
@@ -180,12 +191,6 @@ public class LevelMaker : MonoBehaviour
         Destroy(Ball);
         // Destroy(GameObjects);
         return;
-
-        // Buttle
-        Buttle.GetComponent<MeshFilter>().mesh = ButtleMeshs[level.buttleIndex];
-        Buttle.GetComponent<MeshCollider>().sharedMesh = ButtleMeshs[level.buttleIndex];
-
-        
 
         // Bucket
         Instantiate(Bucket, new Vector3(level.bucket.x, level.bucket.y, level.bucket.z), Quaternion.Euler(new Vector3(Bucket.transform.rotation.x, Bucket.transform.rotation.y, Bucket.transform.rotation.z)));

@@ -7,8 +7,6 @@ public class PinObject : MonoBehaviour
     [SerializeField] public string[] BombIds;
     public GameObject Pins;
 
-    
-
     // Start is called before the first frame update
     void Start()
     {

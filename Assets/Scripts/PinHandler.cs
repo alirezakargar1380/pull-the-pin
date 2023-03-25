@@ -6,6 +6,9 @@ public class PinHandler : MonoBehaviour
 {
     public LevelMaker MakeBallsScript;
     public PinObject pinObjectSource;
+    public GameObject Pin;
+    public GameObject CircleOfPin;
+    public GameObject NurbsOfPin;
     public bool Clicked = false;
 
     public void OnCollisionStay(Collision target)
@@ -24,13 +27,17 @@ public class PinHandler : MonoBehaviour
     {
         if (Clicked) return;
 
-        // string pinName = pinObjectSource.GetComponent<PinObject>().pinName;
-        pinObjectSource.GetComponent<PinObject>().moveAnPin();
-        // Instantiate(gameObject, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), gameObject.transform.rotation);
-        // gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z).normalized * Time.deltaTime * 0.1f;
+        // pinObjectSource.GetComponent<PinObject>().moveAnPin();
+        // Animator anim = CircleOfPin.GetComponent<Animator>();
+        // anim.SetBool("open", true);
 
-        // Destroy(Pin);
+        pinObjectSource.GetComponent<PinObject>().moveAnPin();
         Clicked = true;
-        // MakeBallsScript.ExploadeBomb("bomb_0");
+    }
+
+    public void move()
+    {
+        
+        pinObjectSource.GetComponent<PinObject>().moveAnPin();
     }
 }
