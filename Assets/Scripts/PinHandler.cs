@@ -27,17 +27,7 @@ public class PinHandler : MonoBehaviour
     {
         if (Clicked) return;
 
-        // pinObjectSource.GetComponent<PinObject>().moveAnPin();
-        // Animator anim = CircleOfPin.GetComponent<Animator>();
-        // anim.SetBool("open", true);
-
         pinObjectSource.GetComponent<PinObject>().moveAnPin();
         Clicked = true;
-    }
-
-    public void move()
-    {
-        
-        pinObjectSource.GetComponent<PinObject>().moveAnPin();
     }
 }

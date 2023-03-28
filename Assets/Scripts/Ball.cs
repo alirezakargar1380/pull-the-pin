@@ -7,6 +7,9 @@ public class Ball : MonoBehaviour
     [SerializeField] public bool Touched = false;
     [SerializeField] public bool HadColor = false;
     [SerializeField] public string Name;
+    public AudioSource burnBall;
+    public AudioClip first;
+    public AudioClip second;
     public LevelMaker LevelGeneratorScript;
     [SerializeField] public LevelHandler LevelHandlerScript;
 
@@ -57,8 +60,15 @@ public class Ball : MonoBehaviour
             HadColor = true;
             // Color customColor = new Color(0.4f, 0.9f, 0.7f, 1.0f);
             LevelGeneratorScript.MakeColorForBall(gameObject);
-            // gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", customColor);
+            // gameObject.GetComponent<AudioSource>().Play();
+            // --> SOUND // gameObject.GetComponent<AudioSource>().Play();
+            gameObject.GetComponent<AudioSource>().PlayOneShot(first);
         }
+    }
+
+    public void PlaySecond()
+    {
+        gameObject.GetComponent<AudioSource>().PlayOneShot(second);
     }
 
     // Start is called before the first frame update

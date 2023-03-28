@@ -6,6 +6,7 @@ public class Laser : MonoBehaviour
 {
     public GameObject Smoke;
     public Animator anim;
+    [SerializeField] Material Hide;
     public bool IsLaserActive = false;
 
     // Start is called before the first frame update
@@ -39,7 +40,7 @@ public class Laser : MonoBehaviour
         Debug.Log("active the laser");
         IsLaserActive = true;
         anim.SetInteger("int", 5);
-        Invoke("DeActiveLaser", 3);
+        Invoke("DeActiveLaser", 10);
     }
 
     public void DeActiveLaser()
@@ -54,7 +55,11 @@ public class Laser : MonoBehaviour
         if (IsLaserActive)
         {
             Smoke.SetActive(true);
-            Destroy(other.gameObject);
+            
+            other.gameObject.GetComponent<MeshRenderer>().material = Hide;
+            other.GetComponent<Ball>().PlaySecond();
+            other.GetComponent<TrailRenderer>().enabled = false;
+            other.GetComponent<MeshCollider>().enabled = false;
             Invoke("DeactiveSmoke", 1);
         } 
         
