@@ -6,11 +6,20 @@ public class Bomb : MonoBehaviour
 {
     [SerializeField] public bool Exploaded = false;
     [SerializeField] public bool MakeReadyToExpload = false;
+    [SerializeField] public bool BallHitTheBomb = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        MakeBombReadyToExpload();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ball"))
+        {
+            BallHitTheBomb = true;
+        }
     }
 
     // Update is called once per frame
@@ -35,6 +44,12 @@ public class Bomb : MonoBehaviour
             if (hit.CompareTag("ball"))
             {
                 Rigidbody rb = hit.GetComponent<Rigidbody>();
+                // rb.AddExplosionForce(10.0f, gameObject.transform.position, 5.0f, 1.0f, ForceMode.Impulse);
+                if (BallHitTheBomb)
+                {
+                    hit.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                }
+                
                 rb.AddExplosionForce(10.0f, gameObject.transform.position, 5.0f, 1.0f, ForceMode.Impulse);
             }
         }

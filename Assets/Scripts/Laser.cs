@@ -25,19 +25,19 @@ public class Laser : MonoBehaviour
     }
 
     public void ActivePreviewlaser() {
-        Debug.Log("preview the laser");
+        // Debug.Log("preview the laser");
         anim.SetInteger("int", 1);
         Invoke("DeActivePreviewlaser", 5);
     }
 
     public void DeActivePreviewlaser() {
-        Debug.Log("de active the preview laser");
+        // Debug.Log("de active the preview laser");
         anim.SetInteger("int", 2);
         ActiveLaser();
     }
 
     public void ActiveLaser() {
-        Debug.Log("active the laser");
+        // Debug.Log("active the laser");
         IsLaserActive = true;
         anim.SetInteger("int", 5);
         Invoke("DeActiveLaser", 10);

@@ -13,10 +13,11 @@ public class Ball : MonoBehaviour
     public LevelMaker LevelGeneratorScript;
     [SerializeField] public LevelHandler LevelHandlerScript;
 
-
-
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.name);
+        if (!collision.gameObject.CompareTag("ball"))
+            return;
 
         if (collision.gameObject.CompareTag("ball") && collision.gameObject.GetComponent<Ball>().Touched && !Touched)
         {
@@ -46,10 +47,6 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        // Debug.Log(collision.gameObject.GetComponent<Ball>().Touched);
-        // Debug.Log(collision.gameObject.name);
-       // return;
-
         if (!collision.gameObject.CompareTag("ball") || HadColor || !gameObject.CompareTag("ball"))
         {
             return;

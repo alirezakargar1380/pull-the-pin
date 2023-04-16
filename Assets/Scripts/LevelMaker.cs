@@ -86,8 +86,10 @@ public class LevelMaker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(LevelPage.selectedLevel);
+
         // GET LEVEL
-        LevelsDetail level = GetLevel(LevelPage.selectedLevel);
+        LevelsDetail level = GetLevel(3);
 
         // Buttle
         GameObject CreatedButtle = Instantiate(Buttle, Buttle.transform.position, Buttle.transform.rotation);
