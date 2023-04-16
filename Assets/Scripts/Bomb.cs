@@ -7,11 +7,12 @@ public class Bomb : MonoBehaviour
     [SerializeField] public bool Exploaded = false;
     [SerializeField] public bool MakeReadyToExpload = false;
     [SerializeField] public bool BallHitTheBomb = false;
+    [SerializeField] public float ExplodePower = 10.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        MakeBombReadyToExpload();
+        // MakeBombReadyToExpload();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -50,7 +51,7 @@ public class Bomb : MonoBehaviour
                     hit.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 }
                 
-                rb.AddExplosionForce(10.0f, gameObject.transform.position, 5.0f, 1.0f, ForceMode.Impulse);
+                rb.AddExplosionForce(ExplodePower, gameObject.transform.position, 5.0f, 1.0f, ForceMode.Impulse);
             }
         }
         Destroy(gameObject);
