@@ -86,58 +86,8 @@ public class LevelMaker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(LevelPage.selectedLevel);
-
-        // GET LEVEL
+        buildLevel();
         LevelsDetail level = GetLevel(3);
-
-        // Buttle
-        GameObject CreatedButtle = Instantiate(Buttle, Buttle.transform.position, Buttle.transform.rotation);
-        CreatedButtle.transform.SetParent(ButtleParent.transform);
-        CreatedButtle.transform.position = Buttle.transform.position;
-        CreatedButtle.transform.rotation = Buttle.transform.rotation;
-        CreatedButtle.transform.localScale = Buttle.transform.localScale;
-        CreatedButtle.GetComponent<MeshFilter>().mesh = ButtleMeshs[0];
-        CreatedButtle.GetComponent<MeshCollider>().sharedMesh = ButtleMeshs[0];
-        Destroy(Buttle);
-
-        // Make Balls
-        foreach (BallO ball in level.balls)
-        {
-            if (!ball.doesItHaveColor)
-            {
-                for (int i = 0; i < ball.num; i++)
-                {
-                    GameObject CreatedBall = Instantiate(Ball, new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, Ball.transform.position.z), Ball.transform.rotation);
-                    CreatedBall.GetComponent<MeshRenderer>().material = WithoutColorBallMaterial;
-                    CreatedBall.GetComponent<Ball>().HadColor = false;
-
-                    LevelHandlerScript.AllBalls++;
-                }
-            }
-            else
-            {
-                for (int i = 0; i < ball.num; i++)
-                {
-                    GameObject CreatedBall = Instantiate(Ball, new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, Ball.transform.position.z), Ball.transform.rotation);
-                    CreatedBall.GetComponent<MeshRenderer>().material = GetRandomBallMaterial();
-                    CreatedBall.GetComponent<Ball>().HadColor = true;
-
-                    LevelHandlerScript.AllBalls++;
-                }
-            }
-        }
-        Destroy(Ball);
-
-
-        // PIN
-        foreach (CoordinateAndRotation coor in level.pins)
-        {
-            GameObject nPin = Instantiate(Pin, new Vector3(coor.x, coor.y, coor.z), Quaternion.Euler(new Vector3(coor.rx, coor.ry, coor.rz)));
-            nPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_0" };
-            nPin.GetComponent<PinObject>().Pins = nPin;
-        }
-        Destroy(Pin);
         return;
 
         // Make Balls
@@ -299,6 +249,68 @@ public class LevelMaker : MonoBehaviour
 
         // Debug.Log(vv);
         return selectedLevel;
+    }
+
+    public void buildLevel()
+    {
+        Debug.Log("build level");
+        Debug.Log(LevelPage.selectedLevel);
+
+        // GET LEVEL
+        LevelsDetail level = GetLevel(3);
+
+        // Buttle
+        Buttle.gameObject.SetActive(true);
+        GameObject CreatedButtle = Instantiate(Buttle, Buttle.transform.position, Buttle.transform.rotation);
+        CreatedButtle.transform.SetParent(ButtleParent.transform);
+        CreatedButtle.transform.position = Buttle.transform.position;
+        CreatedButtle.transform.rotation = Buttle.transform.rotation;
+        CreatedButtle.transform.localScale = Buttle.transform.localScale;
+        CreatedButtle.GetComponent<MeshFilter>().mesh = ButtleMeshs[0];
+        CreatedButtle.GetComponent<MeshCollider>().sharedMesh = ButtleMeshs[0];
+        // Destroy(Buttle);
+        Buttle.gameObject.SetActive(false);
+
+        // Make Balls
+        Ball.gameObject.SetActive(true);
+        foreach (BallO ball in level.balls)
+        {
+            if (!ball.doesItHaveColor)
+            {
+                for (int i = 0; i < ball.num; i++)
+                {
+                    GameObject CreatedBall = Instantiate(Ball, new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, Ball.transform.position.z), Ball.transform.rotation);
+                    CreatedBall.GetComponent<MeshRenderer>().material = WithoutColorBallMaterial;
+                    CreatedBall.GetComponent<Ball>().HadColor = false;
+
+                    LevelHandlerScript.AllBalls++;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < ball.num; i++)
+                {
+                    GameObject CreatedBall = Instantiate(Ball, new Vector3(ball.startPoint.x + (space * i), ball.startPoint.y, Ball.transform.position.z), Ball.transform.rotation);
+                    levelObjects.Add(CreatedBall);
+                    CreatedBall.GetComponent<MeshRenderer>().material = GetRandomBallMaterial();
+                    CreatedBall.GetComponent<Ball>().HadColor = true;
+
+                    LevelHandlerScript.AllBalls++;
+                }
+            }
+        }
+        Ball.gameObject.SetActive(false);
+
+        // PIN
+        Pin.gameObject.SetActive(true);
+        foreach (CoordinateAndRotation coor in level.pins)
+        {
+            GameObject nPin = Instantiate(Pin, new Vector3(coor.x, coor.y, coor.z), Quaternion.Euler(new Vector3(coor.rx, coor.ry, coor.rz)));
+            nPin.GetComponent<PinObject>().BombIds = new string[] { "bomb_0" };
+            nPin.GetComponent<PinObject>().Pins = nPin;
+        }
+        Pin.gameObject.SetActive(false);
+        // Destroy(Pin);
     }
 
     public void ExploadeBomb(string BombId)
